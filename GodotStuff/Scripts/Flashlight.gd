@@ -5,12 +5,11 @@ func _input(event):
 		set_global_position(event.position)
 
 func litAreaEntered(area):
-	if area.isEyes:
+	if area.get_script().get_path().get_file() == "hidden_eyes.gd":
+		area.inLight = true
 		if area.visible:
-			area.inLight = true
 			area.spotted()
 
-
 func litAreaExited(area):
-	if area.isEyes:
+	if area.get_script().get_path().get_file() == "hidden_eyes.gd":
 		area.inLight = false
