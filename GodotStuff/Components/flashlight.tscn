@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://djmm5pawpn4mw"]
+
+[ext_resource type="Texture2D" uid="uid://c8hdwo6lcy44s" path="res://Assets/Flashlight.png" id="1_gocbo"]
+[ext_resource type="Script" path="res://Scripts/flashlight.gd" id="2_dfbyb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cali8"]
+radius = 319.486
+
+[node name="Flashlight" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.176471)
+position = Vector2(581, 357)
+scale = Vector2(0.431944, 0.431944)
+texture = ExtResource("1_gocbo")
+offset = Vector2(17, 95)
+script = ExtResource("2_dfbyb")
+
+[node name="LitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LitArea"]
+shape = SubResource("CircleShape2D_cali8")
+
+[connection signal="area_entered" from="LitArea" to="." method="litAreaEntered"]
+[connection signal="area_exited" from="LitArea" to="." method="litAreaExited"]

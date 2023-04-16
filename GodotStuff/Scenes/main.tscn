@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3krkt5kre5si"]
+[gd_scene load_steps=5 format=3 uid="uid://c3krkt5kre5si"]
 
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_2nihr"]
 [ext_resource type="Texture2D" uid="uid://cg4sfvq8ms3ak" path="res://Assets/Room.png" id="1_bmksb"]
-[ext_resource type="Texture2D" uid="uid://c8hdwo6lcy44s" path="res://Assets/Flashlight.png" id="2_2p705"]
-[ext_resource type="Script" path="res://Scripts/Flashlight.gd" id="2_p5ie5"]
+[ext_resource type="PackedScene" uid="uid://djmm5pawpn4mw" path="res://Components/flashlight.tscn" id="2_gacur"]
+[ext_resource type="PackedScene" uid="uid://t26aijklyfut" path="res://Components/hidden_eyes.tscn" id="3_avau3"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_2nihr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576.5, 323)
@@ -18,9 +20,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 0.968627)
 
-[node name="ColorRect2" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.176471)
-position = Vector2(581, 357)
-scale = Vector2(0.431944, 0.431944)
-texture = ExtResource("2_2p705")
-script = ExtResource("2_p5ie5")
+[node name="Flashlight" parent="." instance=ExtResource("2_gacur")]
+
+[node name="Eyes" type="Node2D" parent="."]
+
+[node name="HiddenEyes" parent="Eyes" instance=ExtResource("3_avau3")]
+position = Vector2(1016, 337)
+
+[node name="HiddenEyes2" parent="Eyes" instance=ExtResource("3_avau3")]
+position = Vector2(749, 477)
+
+[node name="HiddenEyes3" parent="Eyes" instance=ExtResource("3_avau3")]
+position = Vector2(788, 204)

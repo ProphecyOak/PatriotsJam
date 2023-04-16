@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://t26aijklyfut"]
+
+[ext_resource type="Texture2D" uid="uid://em2xjbr2jw5j" path="res://Assets/Eyes/RoundEyes.png" id="1_qpst7"]
+[ext_resource type="Script" path="res://Scripts/hidden_eyes.gd" id="1_vy30b"]
+[ext_resource type="Texture2D" uid="uid://cwb3c32ig7mxv" path="res://Assets/Eyes/RoundEyesBlink1.png" id="2_ur5ba"]
+[ext_resource type="Texture2D" uid="uid://dcho231kq6eip" path="res://Assets/Eyes/RoundEyesBlink2.png" id="3_unllu"]
+[ext_resource type="Texture2D" uid="uid://b5fy7hcvohfp7" path="res://Assets/Eyes/RoundEyesBlink3.png" id="4_bxuym"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cq0a"]
+radius = 9.0
+height = 58.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ttw1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qpst7")
+}, {
+"duration": 0.2,
+"texture": ExtResource("2_ur5ba")
+}, {
+"duration": 0.2,
+"texture": ExtResource("3_unllu")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_bxuym")
+}, {
+"duration": 0.2,
+"texture": ExtResource("3_unllu")
+}, {
+"duration": 0.2,
+"texture": ExtResource("2_ur5ba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_qpst7")
+}],
+"loop": false,
+"name": &"Blink",
+"speed": 5.0
+}]
+
+[node name="HiddenEyes" type="Area2D"]
+script = ExtResource("1_vy30b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3cq0a")
+
+[node name="RoundEyes" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, 25)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_ttw1p")
+animation = &"Blink"
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="SpotTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="BlinkTimer" to="." method="BlinkCheck"]
+[connection signal="timeout" from="SpotTimer" to="." method="spottedCheck"]
