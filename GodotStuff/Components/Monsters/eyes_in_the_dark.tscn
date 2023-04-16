@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddluhmnwwhj88"]
+
+[ext_resource type="PackedScene" uid="uid://7lub4rpwwag8" path="res://Components/Monsters/monster.tscn" id="1_ymm5g"]
+[ext_resource type="Script" path="res://Scripts/MonsterControllers/EyesInTheDark.gd" id="2_g2ld3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4j0s"]
+height = 74.0
+
+[node name="EyesInTheDark" instance=ExtResource("1_ymm5g")]
+script = ExtResource("2_g2ld3")
+
+[node name="CollisionShape2D" parent="." index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_x4j0s")

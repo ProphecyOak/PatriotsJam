@@ -1,12 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3krkt5kre5si"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_2nihr"]
 [ext_resource type="Texture2D" uid="uid://cg4sfvq8ms3ak" path="res://Assets/Room.png" id="1_bmksb"]
 [ext_resource type="PackedScene" uid="uid://djmm5pawpn4mw" path="res://Components/flashlight.tscn" id="2_gacur"]
-[ext_resource type="PackedScene" uid="uid://t26aijklyfut" path="res://Components/hidden_eyes.tscn" id="3_avau3"]
+[ext_resource type="PackedScene" uid="uid://bbjc8mwkogh7g" path="res://Components/Monsters/snipe.tscn" id="3_bhjst"]
+[ext_resource type="PackedScene" uid="uid://ddluhmnwwhj88" path="res://Components/Monsters/eyes_in_the_dark.tscn" id="4_kfgc2"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_2nihr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576.5, 323)
@@ -21,14 +20,12 @@ size_flags_vertical = 3
 color = Color(0, 0, 0, 0.968627)
 
 [node name="Flashlight" parent="." instance=ExtResource("2_gacur")]
+position = Vector2(527, 294)
 
-[node name="Eyes" type="Node2D" parent="."]
+[node name="Monsters" type="Node2D" parent="."]
 
-[node name="HiddenEyes" parent="Eyes" instance=ExtResource("3_avau3")]
-position = Vector2(1016, 337)
+[node name="Snipe" parent="Monsters" instance=ExtResource("3_bhjst")]
+position = Vector2(89, 144)
 
-[node name="HiddenEyes2" parent="Eyes" instance=ExtResource("3_avau3")]
-position = Vector2(749, 477)
-
-[node name="HiddenEyes3" parent="Eyes" instance=ExtResource("3_avau3")]
-position = Vector2(788, 204)
+[node name="EyesInTheDark" parent="Monsters" instance=ExtResource("4_kfgc2")]
+position = Vector2(976, 236)
