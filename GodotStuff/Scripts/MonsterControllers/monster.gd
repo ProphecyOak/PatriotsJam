@@ -9,6 +9,9 @@ class_name Monster
 var inLight: bool = false
 var isEvil: bool = false
 
+func _ready():
+	$EvilTimer.start(Time_Until_Evil)
+
 #Stops evil timer progress, and triggers spotted behavior
 #spotted(): void
 func spotted():
@@ -18,7 +21,8 @@ func spotted():
 #Spotted behavior. Default just hides monster if not evil
 #onSpotted(): void
 func onSpotted():
-	pass
+	if !isEvil:
+		visible = false
 
 #If out of flashlight, begins countdown till unspotted behavior
 #unspotted(): void
@@ -37,7 +41,9 @@ func spotTimerDone():
 #Unspotted behavior. Restarts evil timer. Default just shows monster
 #onUnspotted(): void
 func onUnspotted():
-	pass
+	visible = true
+	if !isEvil:
+		$EvilTimer.start(Time_Until_Evil)
 
 #Modifies isEvil and triggers evil behavior
 #evilTimerDone(): void
@@ -48,4 +54,4 @@ func evilTimerDone():
 #Evil behavior
 #doEvil(): void
 func doEvil():
-	pass
+	print("hahahah you lose because im evil now -"+name)
