@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b1kjq4vccf58y"
-path="res://.godot/imported/flashlightOn.wav-4d1bea7e7589d3148b244f5841b42339.sample"
+uid="uid://cww2stw7r2m3c"
+path="res://.godot/imported/Snipe.wav-fcae93c7de709ec09968bc9a76e69036.sample"
 
 [deps]
 
-source_file="res://Assets/flashlightOn.wav"
-dest_files=["res://.godot/imported/flashlightOn.wav-4d1bea7e7589d3148b244f5841b42339.sample"]
+source_file="res://Assets/Sounds/Snipe.wav"
+dest_files=["res://.godot/imported/Snipe.wav-fcae93c7de709ec09968bc9a76e69036.sample"]
 
 [params]
 

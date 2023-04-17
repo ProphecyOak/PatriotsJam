@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3krkt5kre5si"]
+[gd_scene load_steps=7 format=3 uid="uid://mn16cfky20at"]
 
 [ext_resource type="Texture2D" uid="uid://cg4sfvq8ms3ak" path="res://Assets/Room.png" id="1_bmksb"]
-[ext_resource type="PackedScene" uid="uid://cl5w6pecdkoqy" path="res://Components/flashlight.tscn" id="2_gacur"]
+[ext_resource type="PackedScene" uid="uid://cva3h8yi7js5p" path="res://Components/flashlight.tscn" id="2_gacur"]
 [ext_resource type="PackedScene" uid="uid://bbjc8mwkogh7g" path="res://Components/Monsters/snipe.tscn" id="3_bhjst"]
 [ext_resource type="PackedScene" uid="uid://ddluhmnwwhj88" path="res://Components/Monsters/eyes_in_the_dark.tscn" id="4_kfgc2"]
-[ext_resource type="AudioStream" uid="uid://d1qiwdmbrvunk" path="res://Assets/forestSounds.wav" id="5_dgb86"]
+[ext_resource type="AudioStream" uid="uid://d1qiwdmbrvunk" path="res://Assets/Sounds/forestSounds.wav" id="5_88s8g"]
 [ext_resource type="Script" path="res://Scenes/forestSounds.gd" id="6_dhk3a"]
 
 [node name="Main" type="Node2D"]
@@ -26,15 +26,27 @@ position = Vector2(527, 294)
 
 [node name="Monsters" type="Node2D" parent="."]
 
-[node name="Snipe" parent="Monsters" instance=ExtResource("3_bhjst")]
-position = Vector2(89, 144)
-
 [node name="EyesInTheDark" parent="Monsters" instance=ExtResource("4_kfgc2")]
 position = Vector2(976, 236)
 blinkMaxTime = 6
 
+[node name="WindowHider" type="Polygon2D" parent="Monsters"]
+clip_children = 1
+position = Vector2(0, 1)
+polygon = PackedVector2Array(25, -11, 28, 320, 175, 245, 177, -22)
+
+[node name="Snipe" parent="Monsters/WindowHider" instance=ExtResource("3_bhjst")]
+visible = false
+position = Vector2(74, 86)
+scale = Vector2(0.2, 0.2)
+flyingLast = 1
+standingLast = 4
+locations = Array[Vector2]([Vector2(111, 46), Vector2(74, 86), Vector2(29, 82), Vector2(50, 103), Vector2(108, 163)])
+scales = Array[float]([0.1, 0.2, 0.1, 0.15, 0.3])
+soundLevels = Array[float]([-100.0, -15.0, 5.0, 15.0, 25.0, -100.0])
+
 [node name="forestSounds" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_dgb86")
+stream = ExtResource("5_88s8g")
 volume_db = -27.789
 script = ExtResource("6_dhk3a")
 

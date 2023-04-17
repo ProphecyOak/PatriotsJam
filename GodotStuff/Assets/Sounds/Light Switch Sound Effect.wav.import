@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d2ccea17ngtit"
-path="res://.godot/imported/Light Switch Sound Effect.wav-54f4424911000ea3fb76ab91f0beca38.sample"
+path="res://.godot/imported/Light Switch Sound Effect.wav-115b7cc4de55cef11831278a84c748ac.sample"
 
 [deps]
 
-source_file="res://Assets/Light Switch Sound Effect.wav"
-dest_files=["res://.godot/imported/Light Switch Sound Effect.wav-54f4424911000ea3fb76ab91f0beca38.sample"]
+source_file="res://Assets/Sounds/Light Switch Sound Effect.wav"
+dest_files=["res://.godot/imported/Light Switch Sound Effect.wav-115b7cc4de55cef11831278a84c748ac.sample"]
 
 [params]
 

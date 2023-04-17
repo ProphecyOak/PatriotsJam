@@ -43,6 +43,6 @@ func litAreaEntered(area):
 		print("spotted!")
 
 func litAreaExited(area):
-	if area.has_method("unspotted"):
+	if area.has_method("unspotted") && isLightOn:
 		area.unspotted()
 		
