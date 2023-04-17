@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl5w6pecdkoqy"]
+[gd_scene load_steps=6 format=3 uid="uid://cva3h8yi7js5p"]
 
 [ext_resource type="Texture2D" uid="uid://c8hdwo6lcy44s" path="res://Assets/Flashlight.png" id="1_gocbo"]
 [ext_resource type="Script" path="res://Scripts/flashlight.gd" id="2_dfbyb"]
-[ext_resource type="AudioStream" uid="uid://b1kjq4vccf58y" path="res://Assets/flashlightOn.wav" id="3_qc3n1"]
-[ext_resource type="AudioStream" uid="uid://cos6t478grc1t" path="res://Assets/lightSwitchOff.wav" id="4_rvrc2"]
+[ext_resource type="AudioStream" uid="uid://b1kjq4vccf58y" path="res://Assets/Sounds/flashlightOn.wav" id="3_f8g3d"]
+[ext_resource type="AudioStream" uid="uid://cos6t478grc1t" path="res://Assets/Sounds/lightSwitchOff.wav" id="4_nfhfm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cali8"]
 radius = 143.544
@@ -22,10 +22,10 @@ texture = ExtResource("1_gocbo")
 offset = Vector2(17, 95)
 
 [node name="on" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_qc3n1")
+stream = ExtResource("3_f8g3d")
 
 [node name="off" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_rvrc2")
+stream = ExtResource("4_nfhfm")
 
 [node name="BatteryTimer" type="Timer" parent="."]
 wait_time = 100.0

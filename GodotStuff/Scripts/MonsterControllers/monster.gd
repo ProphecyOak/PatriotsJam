@@ -9,8 +9,13 @@ class_name Monster
 var inLight: bool = false
 var isEvil: bool = false
 
+#Generates random Time based within delta% of value either way
+#rndTime(timeBase: int, delta: int): float
+func rndTime(timeBase: int, delta: int = 20):
+	return timeBase * (1 + randi_range(-delta, delta)/100.0)
+
 func _ready():
-	$EvilTimer.start(Time_Until_Evil)
+	$EvilTimer.start(rndTime(Time_Until_Evil))
 
 #Stops evil timer progress, and triggers spotted behavior
 #spotted(): void
@@ -28,7 +33,7 @@ func onSpotted():
 #unspotted(): void
 func unspotted():
 	if Time_Until_Reappear > 0:
-		$SpotTimer.start(Time_Until_Reappear)
+		$SpotTimer.start(rndTime(Time_Until_Reappear))
 	else:
 		spotTimerDone()
 
@@ -43,7 +48,7 @@ func spotTimerDone():
 func onUnspotted():
 	visible = true
 	if !isEvil:
-		$EvilTimer.start(Time_Until_Evil)
+		$EvilTimer.start(rndTime(Time_Until_Evil))
 
 #Modifies isEvil and triggers evil behavior
 #evilTimerDone(): void

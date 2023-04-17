@@ -34,10 +34,10 @@ func batteryHandler():
 
 
 func litAreaEntered(area):
-	if area.has_method("spotted"):
+	if area.has_method("spotted") && isLightOn:
 		area.spotted()
 
 func litAreaExited(area):
-	if area.has_method("unspotted"):
+	if area.has_method("unspotted") && isLightOn:
 		area.unspotted()
 		
