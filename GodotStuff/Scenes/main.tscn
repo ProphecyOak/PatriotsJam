@@ -28,6 +28,7 @@ position = Vector2(527, 294)
 
 [node name="EyesInTheDark" parent="Monsters" instance=ExtResource("4_kfgc2")]
 position = Vector2(976, 236)
+blinkMaxTime = 6
 
 [node name="WindowHider" type="Polygon2D" parent="Monsters"]
 clip_children = 1

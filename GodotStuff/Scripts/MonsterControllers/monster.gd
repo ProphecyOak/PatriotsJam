@@ -60,3 +60,4 @@ func evilTimerDone():
 #doEvil(): void
 func doEvil():
 	print("hahahah you lose because im evil now -"+name)
+	
