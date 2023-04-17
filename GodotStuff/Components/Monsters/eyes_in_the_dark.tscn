@@ -1,14 +1,89 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddluhmnwwhj88"]
+[gd_scene load_steps=9 format=3 uid="uid://ddluhmnwwhj88"]
 
 [ext_resource type="PackedScene" uid="uid://7lub4rpwwag8" path="res://Components/Monsters/monster.tscn" id="1_ymm5g"]
 [ext_resource type="Script" path="res://Scripts/MonsterControllers/EyesInTheDark.gd" id="2_g2ld3"]
+[ext_resource type="Texture2D" uid="uid://em2xjbr2jw5j" path="res://Assets/Eyes/RoundEyes.png" id="3_nntga"]
+[ext_resource type="Texture2D" uid="uid://dcho231kq6eip" path="res://Assets/Eyes/RoundEyesBlink2.png" id="4_1osmg"]
+[ext_resource type="Texture2D" uid="uid://cwb3c32ig7mxv" path="res://Assets/Eyes/RoundEyesBlink1.png" id="4_5ncyt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4j0s"]
 height = 74.0
 
+[sub_resource type="Animation" id="Animation_skc5k"]
+resource_name = "blink"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("open:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("closed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mid:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2muhv"]
+_data = {
+"blink": SubResource("Animation_skc5k")
+}
+
 [node name="EyesInTheDark" instance=ExtResource("1_ymm5g")]
 script = ExtResource("2_g2ld3")
+blinkMaxTime = 5
 
 [node name="CollisionShape2D" parent="." index="0"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_x4j0s")
+
+[node name="open" type="Sprite2D" parent="." index="3"]
+position = Vector2(28, 37)
+scale = Vector2(0.242188, 0.273958)
+texture = ExtResource("3_nntga")
+
+[node name="mid" type="Sprite2D" parent="." index="4"]
+visible = false
+position = Vector2(28, 37)
+scale = Vector2(0.242188, 0.273958)
+texture = ExtResource("4_5ncyt")
+
+[node name="closed" type="Sprite2D" parent="." index="5"]
+visible = false
+position = Vector2(28, 37)
+scale = Vector2(0.242188, 0.273958)
+texture = ExtResource("4_1osmg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_2muhv")
+}
+
+[node name="animationTimer" type="Timer" parent="." index="7"]
+
+[connection signal="timeout" from="animationTimer" to="." method="_on_animation_timer_timeout"]

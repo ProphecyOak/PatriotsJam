@@ -3,6 +3,7 @@ extends Area2D
 var isLightOn: bool = false
 @onready var percentIndicator = $"../Battery Remaining"
 
+
 func _ready():
 	$BatteryTimer.start(100)
 	$BatteryTimer.set_paused(true)
@@ -21,6 +22,9 @@ func switchFlashlight():
 	lightAudioHandler()
 	isLightOn = !isLightOn
 	visible = isLightOn
+	for area in self.get_overlapping_areas():
+		if area.is_in_group("Monster") && isLightOn:
+			area.spotted();
 	batteryHandler()
 
 func lightAudioHandler():
@@ -36,6 +40,7 @@ func batteryHandler():
 func litAreaEntered(area):
 	if area.has_method("spotted") && isLightOn:
 		area.spotted()
+		print("spotted!")
 
 func litAreaExited(area):
 	if area.has_method("unspotted") && isLightOn:
