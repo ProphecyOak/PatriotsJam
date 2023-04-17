@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cos6t478grc1t"
-path="res://.godot/imported/lightSwitchOff.wav-208cca2e0e478dbcd2e1d7e364347522.sample"
+path="res://.godot/imported/lightSwitchOff.wav-4ce235df21a2b72b46a3a57607e35a97.sample"
 
 [deps]
 
-source_file="res://Assets/lightSwitchOff.wav"
-dest_files=["res://.godot/imported/lightSwitchOff.wav-208cca2e0e478dbcd2e1d7e364347522.sample"]
+source_file="res://Assets/Sounds/lightSwitchOff.wav"
+dest_files=["res://.godot/imported/lightSwitchOff.wav-4ce235df21a2b72b46a3a57607e35a97.sample"]
 
 [params]
 
