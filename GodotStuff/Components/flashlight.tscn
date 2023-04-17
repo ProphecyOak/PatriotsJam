@@ -9,6 +9,7 @@
 radius = 143.544
 
 [node name="Flashlight" type="Area2D"]
+visible = false
 script = ExtResource("2_dfbyb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -26,7 +27,9 @@ stream = ExtResource("3_qc3n1")
 [node name="off" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_rvrc2")
 
-[node name="batteryCountdown" type="Timer" parent="."]
+[node name="BatteryTimer" type="Timer" parent="."]
+wait_time = 100.0
+one_shot = true
 
 [connection signal="area_entered" from="." to="." method="litAreaEntered"]
 [connection signal="area_exited" from="." to="." method="litAreaExited"]

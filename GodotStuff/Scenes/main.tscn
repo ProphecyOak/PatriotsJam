@@ -36,3 +36,10 @@ position = Vector2(976, 236)
 stream = ExtResource("5_dgb86")
 volume_db = -27.789
 script = ExtResource("6_dhk3a")
+
+[node name="Battery Remaining" type="Label" parent="."]
+offset_left = 29.0
+offset_top = 21.0
+offset_right = 143.0
+offset_bottom = 52.0
+text = "100%"

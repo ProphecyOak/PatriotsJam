@@ -1,40 +1,36 @@
 extends Area2D
 
+var isLightOn: bool = false
+@onready var percentIndicator = $"../Battery Remaining"
+
 func _ready():
-	$batteryCountdown.start(100)
-	
+	$BatteryTimer.start(100)
+	$BatteryTimer.set_paused(true)
+
+func _process(_delta):
+	percentIndicator.text = str(roundi($BatteryTimer.time_left))+"%"
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		set_global_position(event.position)
-	#in theory, clicking should go here too but
-	#it continuously turns back on.. so i stuffed it
-	#in _process for now
+	elif event is InputEventMouseButton:
+		if event.button_index == 1 && event.pressed == true:
+			switchFlashlight()
 		
-func _process(delta):
-	#for dealing with turning light on and off
-	if Input.is_action_just_released("leftClick"):
-		lightAudioHandler(lightStatus())
-		visible = false if lightStatus() else true
-		print("click!")
-	#for implementing simple flashlight battery
+func switchFlashlight():
+	lightAudioHandler()
+	isLightOn = !isLightOn
+	visible = isLightOn
 	batteryHandler()
 
-func lightStatus():
-	return visible;
-	
-func lightAudioHandler(status):
-	if status == true:
+func lightAudioHandler():
+	if isLightOn:
 		$on.play()
 	else:
 		$off.play()
 
-func batteryHandler(): 
-	if lightStatus() == false:
-		$batteryCountdown.set_paused(true)
-	else:
-		$batteryCountdown.set_paused(false)
-	print("Battery Left: " + str($batteryCountdown.time_left))
+func batteryHandler():
+	$BatteryTimer.set_paused(!isLightOn)
 
 
 func litAreaEntered(area):
