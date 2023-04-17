@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://7lub4rpwwag8"]
+
+[ext_resource type="Script" path="res://Scripts/MonsterControllers/monster.gd" id="1_kwf7h"]
+
+[node name="Monster" type="Area2D"]
+script = ExtResource("1_kwf7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="SpotTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="EvilTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SpotTimer" to="." method="spotTimerDone"]
+[connection signal="timeout" from="EvilTimer" to="." method="evilTimerDone"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2ccea17ngtit"
+path="res://.godot/imported/Light Switch Sound Effect.wav-115b7cc4de55cef11831278a84c748ac.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Light Switch Sound Effect.wav"
+dest_files=["res://.godot/imported/Light Switch Sound Effect.wav-115b7cc4de55cef11831278a84c748ac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

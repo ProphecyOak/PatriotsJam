@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbjc8mwkogh7g"]
+
+[ext_resource type="PackedScene" uid="uid://7lub4rpwwag8" path="res://Components/Monsters/monster.tscn" id="1_jcei5"]
+[ext_resource type="Script" path="res://Scripts/MonsterControllers/Snipe.gd" id="2_akfdj"]
+[ext_resource type="Texture2D" uid="uid://b1nta2drmt7ui" path="res://Assets/Snipe/Snipe1.png" id="3_cirve"]
+[ext_resource type="Texture2D" uid="uid://pj6qt2xd2roj" path="res://Assets/Snipe/Snipe2.png" id="4_eyaar"]
+[ext_resource type="AudioStream" uid="uid://cww2stw7r2m3c" path="res://Assets/Sounds/Snipe.wav" id="5_ardd2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8g8ic"]
+radius = 88.0057
+
+[node name="Snipe" instance=ExtResource("1_jcei5")]
+script = ExtResource("2_akfdj")
+moveSpeed = 20
+flyingLast = 0
+standingLast = 0
+locations = Array[Vector2]([Vector2(0, 0)])
+scales = Array[float]([])
+soundLevels = Array[float]([-100.0, -15.0, 5.0, 15.0, 25.0, -100.0])
+
+[node name="SnipeStanding" type="Sprite2D" parent="." index="0"]
+visible = false
+texture = ExtResource("3_cirve")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_8g8ic")
+
+[node name="MoveTimer" type="Timer" parent="." index="4"]
+wait_time = 10.0
+autostart = true
+
+[node name="SnipeFlying" type="Sprite2D" parent="." index="5"]
+position = Vector2(42, -158)
+texture = ExtResource("4_eyaar")
+
+[node name="Screech" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource("5_ardd2")
+
+[connection signal="timeout" from="MoveTimer" to="." method="moveTimerDone"]
