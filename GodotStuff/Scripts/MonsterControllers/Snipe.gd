@@ -23,7 +23,6 @@ func moveTimerDone(direction = 1):
 	if direction > 0:
 		$Screech.volume_db = soundLevels[currentPosition]
 		$Screech.play()
-	print(currentPosition)
 	if currentPosition > -1 && currentPosition <= flyingLast:
 		$SnipeFlying.visible = true
 		$SnipeStanding.visible = false
@@ -40,7 +39,6 @@ func moveTimerDone(direction = 1):
 #Spotted behavior. Default just hides monster if not evil
 #onSpotted(): void
 func onSpotted():
-	print($SpotTimer.time_left)
 	if visible && $SpotTimer.is_stopped():
 		if randi_range(1,4)<=2:
 			gonnaMoveBack = true

@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dln85sh0iphtg"]
+
+[ext_resource type="Texture2D" uid="uid://dmkkki7ggatpn" path="res://Assets/CribView/Crib.png" id="1_uoscv"]
+[ext_resource type="Texture2D" uid="uid://bxvyf6iqgqw6l" path="res://Assets/CribView/BottomLeft.png" id="2_kpfr4"]
+[ext_resource type="Texture2D" uid="uid://gjs28rs6icd4" path="res://Assets/CribView/BottomRight.png" id="3_4dar5"]
+[ext_resource type="Texture2D" uid="uid://bdinmu28q70qu" path="res://Assets/CribView/TopLeft.png" id="4_ddjpg"]
+[ext_resource type="Texture2D" uid="uid://driu76so4wp8v" path="res://Assets/CribView/TopRight.png" id="5_ygt5i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hd0rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kpfr4")
+}],
+"loop": true,
+"name": &"bottomLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4dar5")
+}],
+"loop": true,
+"name": &"bottomRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ddjpg")
+}],
+"loop": true,
+"name": &"topLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ygt5i")
+}],
+"loop": true,
+"name": &"topRight",
+"speed": 5.0
+}]
+
+[node name="CribView" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_uoscv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_hd0rv")
+animation = &"bottomLeft"

@@ -14,14 +14,15 @@ func _ready():
 func _process(_delta):
 	percentIndicator.text = str(roundi($BatteryTimer.time_left))+"%"
 
-	chargeHandler();
-
 func _input(event):
 	if event is InputEventMouseMotion:
 		set_global_position(event.position)
 	elif event is InputEventMouseButton:
 		if event.button_index == 1 && event.pressed == true:
 			switchFlashlight()
+	elif event is InputEventKey && event.is_pressed() && event.keycode==Global.debugKey:
+		chargeHandler()
+
 func switchFlashlight():
 	if !pauseBattery:
 		lightAudioHandler()
@@ -45,7 +46,6 @@ func batteryHandler():
 func litAreaEntered(area):
 	if area.has_method("spotted") && isLightOn:
 		area.spotted()
-		print("spotted!")
 
 func litAreaExited(area):
 	if area.has_method("unspotted") && isLightOn:
@@ -53,19 +53,18 @@ func litAreaExited(area):
 		
 
 func _on_battery_timer_timeout():
-	visible = false;
-	pauseBattery = true;
+	visible = false
+	isLightOn = false
+	pauseBattery = true
 	
 #handle charging
 func chargeHandler():
-	if Input.is_action_just_pressed("ui_accept") && $BatteryTimer.time_left < 90:
-		print("charging...")
-		$chargingSound.play()
-		var currentBattery = $BatteryTimer.get_time_left()
-		$BatteryTimer.set_paused(true)
-		pauseBattery = true
-		visible = false
-		await get_tree().create_timer(10).timeout
-		$BatteryTimer.start(currentBattery + 10)
-		print($BatteryTimer.time_left)
-		pauseBattery = false
+	$chargingSound.play()
+	var currentBattery = $BatteryTimer.get_time_left()
+	$BatteryTimer.set_paused(true)
+	pauseBattery = true
+	visible = false
+	isLightOn = false
+	await get_tree().create_timer(10).timeout
+	$BatteryTimer.start(currentBattery + 10)
+	pauseBattery = false
