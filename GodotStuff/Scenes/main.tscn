@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwqjdw2hdp1vl"]
+[gd_scene load_steps=11 format=3 uid="uid://dwqjdw2hdp1vl"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_2ym7g"]
 [ext_resource type="Texture2D" uid="uid://cg4sfvq8ms3ak" path="res://Assets/Room.png" id="1_bmksb"]
-[ext_resource type="PackedScene" uid="uid://dln85sh0iphtg" path="res://Scenes/cribView.tscn" id="1_xr4ry"]
+[ext_resource type="PackedScene" path="res://Scenes/cribView.tscn" id="1_xr4ry"]
 [ext_resource type="PackedScene" uid="uid://cva3h8yi7js5p" path="res://Components/flashlight.tscn" id="2_gacur"]
 [ext_resource type="PackedScene" uid="uid://bbjc8mwkogh7g" path="res://Components/Monsters/snipe.tscn" id="3_bhjst"]
 [ext_resource type="PackedScene" uid="uid://ddluhmnwwhj88" path="res://Components/Monsters/eyes_in_the_dark.tscn" id="4_kfgc2"]
 [ext_resource type="AudioStream" uid="uid://d1qiwdmbrvunk" path="res://Assets/Sounds/forestSounds.wav" id="5_88s8g"]
 [ext_resource type="Script" path="res://Scripts/forestSounds.gd" id="6_vrlhh"]
+[ext_resource type="PackedScene" uid="uid://dp8woxgosbx2j" path="res://Components/Monsters/gnome.tscn" id="7_8di42"]
 [ext_resource type="Texture2D" uid="uid://bd61sfwyu2w8m" path="res://Assets/WhiteLight.png" id="8_v36vd"]
 
 [node name="Main" type="Node2D"]
@@ -42,6 +43,9 @@ scales = Array[float]([0.1, 0.2, 0.1, 0.15, 0.3])
 [node name="EyesInTheDark" parent="RoomMonsters" instance=ExtResource("4_kfgc2")]
 z_index = 1
 position = Vector2(908, 246)
+
+[node name="gnome" parent="RoomMonsters" instance=ExtResource("7_8di42")]
+position = Vector2(581, 536)
 
 [node name="CribView" parent="." instance=ExtResource("1_xr4ry")]
 visible = false
