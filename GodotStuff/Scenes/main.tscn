@@ -48,6 +48,9 @@ Time_Until_Evil = 30
 [node name="gnome" parent="RoomMonsters" instance=ExtResource("7_8di42")]
 position = Vector2(581, 536)
 
+[node name="gnome" parent="RoomMonsters" instance=ExtResource("7_8di42")]
+position = Vector2(581, 536)
+
 [node name="CribView" parent="." instance=ExtResource("1_xr4ry")]
 visible = false
 position = Vector2(-6, -6)
