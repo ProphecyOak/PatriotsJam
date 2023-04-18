@@ -2,6 +2,7 @@ extends Node
 
 var isAudioOn = true
 var isJumpScaresOn = true
+var gameOver = false;
 
 func toggleSounds():
 	isAudioOn = !isAudioOn

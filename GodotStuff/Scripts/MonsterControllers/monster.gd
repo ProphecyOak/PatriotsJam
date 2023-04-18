@@ -4,10 +4,17 @@ class_name Monster
 #Exports timer lengths
 @export var Time_Until_Evil: int = 15
 @export var Time_Until_Reappear: int = 5
+signal gameOver;
 
 #initializes lit and evil qualities
 var inLight: bool = false
 var isEvil: bool = false
+
+#basic function to change scene based on end condition
+func _process(delta):
+	if Global.gameOver == true:
+		get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
+
 
 #Generates random Time based within delta% of value either way
 #rndTime(timeBase: int, delta: int): float
@@ -60,6 +67,8 @@ func evilTimerDone():
 #doEvil(): void
 func doEvil():
 	print("hahahah you lose because im evil now -"+name)
+	Global.gameOver = true;
+	#gameOver.emit()
 
 func jumpScare(anim="default"):
 	$Scare.visible = true
