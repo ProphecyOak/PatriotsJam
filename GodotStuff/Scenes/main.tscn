@@ -23,19 +23,14 @@ position = Vector2(576.5, 323)
 scale = Vector2(0.30026, 0.299074)
 texture = ExtResource("1_bmksb")
 
-[node name="Monsters" type="Node2D" parent="."]
-scale = Vector2(1, 1)
+[node name="RoomMonsters" type="Node2D" parent="."]
 
-[node name="EyesInTheDark" parent="Monsters" instance=ExtResource("4_kfgc2")]
-position = Vector2(976, 236)
-blinkMaxTime = 6
-
-[node name="WindowHider" type="Polygon2D" parent="Monsters"]
+[node name="WindowHider" type="Polygon2D" parent="RoomMonsters"]
 clip_children = 1
 position = Vector2(0, 1)
 polygon = PackedVector2Array(25, -11, 28, 320, 175, 245, 177, -22)
 
-[node name="Snipe" parent="Monsters/WindowHider" instance=ExtResource("3_bhjst")]
+[node name="Snipe" parent="RoomMonsters/WindowHider" instance=ExtResource("3_bhjst")]
 visible = false
 position = Vector2(74, 86)
 scale = Vector2(0.2, 0.2)
@@ -43,6 +38,10 @@ flyingLast = 1
 standingLast = 4
 locations = Array[Vector2]([Vector2(111, 46), Vector2(74, 86), Vector2(29, 82), Vector2(50, 103), Vector2(108, 163)])
 scales = Array[float]([0.1, 0.2, 0.1, 0.15, 0.3])
+
+[node name="EyesInTheDark" parent="RoomMonsters" instance=ExtResource("4_kfgc2")]
+z_index = 1
+position = Vector2(908, 246)
 
 [node name="CribView" parent="." instance=ExtResource("1_xr4ry")]
 visible = false
@@ -58,6 +57,7 @@ position = Vector2(571, 314.5)
 scale = Vector2(4.72656, 701)
 energy = 0.96
 blend_mode = 1
+range_z_max = 0
 texture = ExtResource("8_v36vd")
 
 [node name="Battery Remaining" type="Label" parent="."]

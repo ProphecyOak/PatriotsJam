@@ -10,12 +10,6 @@ signal gameOver;
 var inLight: bool = false
 var isEvil: bool = false
 
-#basic function to change scene based on end condition
-func _process(delta):
-	if Global.gameOver == true:
-		get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
-
-
 #Generates random Time based within delta% of value either way
 #rndTime(timeBase: int, delta: int): float
 func rndTime(timeBase: int, delta: int = 20):
@@ -60,6 +54,7 @@ func onUnspotted():
 #Modifies isEvil and triggers evil behavior
 #evilTimerDone(): void
 func evilTimerDone():
+	print("EVIL HAHAHAHAHAHAH")
 	isEvil = true
 	doEvil()
 
@@ -68,6 +63,7 @@ func evilTimerDone():
 func doEvil():
 	print("hahahah you lose because im evil now -"+name)
 	Global.gameOver = true;
+	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
 	#gameOver.emit()
 
 func jumpScare(anim="default"):

@@ -4,6 +4,7 @@ extends  Monster
 @export var blinkMaxTime: int = 5;
 
 func _ready():
+	super()
 	$animationTimer.start(randi_range(0,6));
 
 #Spotted behavior. Default just hides monster if not evil
