@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cva3h8yi7js5p"]
+[gd_scene load_steps=7 format=3 uid="uid://cva3h8yi7js5p"]
 
 [ext_resource type="Texture2D" uid="uid://c8hdwo6lcy44s" path="res://Assets/Flashlight.png" id="1_gocbo"]
 [ext_resource type="Script" path="res://Scripts/flashlight.gd" id="2_dfbyb"]
 [ext_resource type="AudioStream" uid="uid://b1kjq4vccf58y" path="res://Assets/Sounds/flashlightOn.wav" id="3_f8g3d"]
 [ext_resource type="AudioStream" uid="uid://cos6t478grc1t" path="res://Assets/Sounds/lightSwitchOff.wav" id="4_nfhfm"]
+[ext_resource type="AudioStream" uid="uid://duvw8ipmqu2do" path="res://Assets/Sounds/chargingSoundTest.wav" id="5_iu53h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cali8"]
 radius = 143.544
@@ -31,5 +32,11 @@ stream = ExtResource("4_nfhfm")
 wait_time = 100.0
 one_shot = true
 
+[node name="chargeTimer" type="Timer" parent="."]
+
+[node name="chargingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iu53h")
+
 [connection signal="area_entered" from="." to="." method="litAreaEntered"]
 [connection signal="area_exited" from="." to="." method="litAreaExited"]
+[connection signal="timeout" from="BatteryTimer" to="." method="_on_battery_timer_timeout"]
