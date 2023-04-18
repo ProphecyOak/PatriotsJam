@@ -2,6 +2,7 @@ extends Node
 
 var isAudioOn = true
 var isJumpScaresOn = true
+var gameOver = false;
 
 var cribToggleKey = 32 #Spacebar
 var debugKey = 67 #c
