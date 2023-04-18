@@ -60,4 +60,7 @@ func evilTimerDone():
 #doEvil(): void
 func doEvil():
 	print("hahahah you lose because im evil now -"+name)
-	
+
+func jumpScare(anim="default"):
+	$Scare.visible = true
+	$Scare.play(anim)
