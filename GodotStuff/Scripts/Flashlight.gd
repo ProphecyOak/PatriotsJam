@@ -22,9 +22,10 @@ func switchFlashlight():
 	lightAudioHandler()
 	isLightOn = !isLightOn
 	visible = isLightOn
-	for area in self.get_overlapping_areas():
-		if area.is_in_group("Monster") && isLightOn:
-			area.spotted();
+	if isLightOn:
+		for area in self.get_overlapping_areas():
+			if area.is_in_group("Monster"):
+				area.spotted();
 	batteryHandler()
 
 func lightAudioHandler():

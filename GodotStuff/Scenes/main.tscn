@@ -19,7 +19,7 @@ offset_right = 1153.0
 offset_bottom = 646.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color(0, 0, 0, 0.968627)
+color = Color(0.0941176, 0.0941176, 0.0941176, 0.968627)
 
 [node name="Flashlight" parent="." instance=ExtResource("2_gacur")]
 position = Vector2(527, 294)
@@ -43,7 +43,6 @@ flyingLast = 1
 standingLast = 4
 locations = Array[Vector2]([Vector2(111, 46), Vector2(74, 86), Vector2(29, 82), Vector2(50, 103), Vector2(108, 163)])
 scales = Array[float]([0.1, 0.2, 0.1, 0.15, 0.3])
-soundLevels = Array[float]([-100.0, -15.0, 5.0, 15.0, 25.0, -100.0])
 
 [node name="forestSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_88s8g")

@@ -13,5 +13,8 @@ one_shot = true
 [node name="EvilTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Scare" type="AnimatedSprite2D" parent="."]
+visible = false
+
 [connection signal="timeout" from="SpotTimer" to="." method="spotTimerDone"]
 [connection signal="timeout" from="EvilTimer" to="." method="evilTimerDone"]
