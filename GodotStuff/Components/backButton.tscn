@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtl7q107doq3m"]
+
+[ext_resource type="Script" path="res://Scripts/backButton.gd" id="1_qpr13"]
+
+[node name="Back" type="Button"]
+custom_minimum_size = Vector2(25, 25)
+offset_left = 516.0
+offset_top = -276.0
+offset_right = 524.0
+offset_bottom = -268.0
+script = ExtResource("1_qpr13")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

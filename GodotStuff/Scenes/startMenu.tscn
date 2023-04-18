@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5bldu680hcc7"]
+[gd_scene load_steps=3 format=3 uid="uid://c5bldu680hcc7"]
+
+[ext_resource type="Script" path="res://Scripts/startMenu.gd" id="1_bqygf"]
 
 [sub_resource type="Theme" id="Theme_7fkyp"]
 default_font_size = 70
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bqygf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -51,3 +54,7 @@ text = "Options"
 [node name="Credits" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Credits"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
