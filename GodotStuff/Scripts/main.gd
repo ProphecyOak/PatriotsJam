@@ -1,6 +1,9 @@
 extends Node2D
 
+var isWatchingCrib = false
+
 func _input(event):
 	if event is InputEventKey && event.keycode==Global.cribToggleKey && event.is_pressed():
-		$CribView.visible = !$CribView.visible
-		$RoomMonsters.visible = !$RoomMonsters.visible
+		isWatchingCrib = !isWatchingCrib
+		$CribView.visible = isWatchingCrib
+		$RoomMonsters.visible = !isWatchingCrib
