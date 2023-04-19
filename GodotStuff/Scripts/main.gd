@@ -8,7 +8,7 @@ func _ready():
 func _input(event):
 	if event is InputEventKey && event.keycode==Global.cribToggleKey && event.is_pressed():
 		isWatchingCrib = !isWatchingCrib
-		$CribView.visible = isWatchingCrib
+		$CribView.showCrib(isWatchingCrib)
 		$RoomMonsters.visible = !isWatchingCrib
 
 func NightOver():

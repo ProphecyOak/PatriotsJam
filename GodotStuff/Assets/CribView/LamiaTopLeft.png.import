@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi452ppa24dtk"
-path="res://.godot/imported/FlashlightLight.png-84e39cde5f938d0c3d33a6f311756e01.ctex"
+uid="uid://tl1ex1u6pr7n"
+path="res://.godot/imported/LamiaTopLeft.png-199326dece9b99ba7959a068e6f8baba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/FlashlightLight.png"
-dest_files=["res://.godot/imported/FlashlightLight.png-84e39cde5f938d0c3d33a6f311756e01.ctex"]
+source_file="res://Assets/CribView/LamiaTopLeft.png"
+dest_files=["res://.godot/imported/LamiaTopLeft.png-199326dece9b99ba7959a068e6f8baba.ctex"]
 
 [params]
 
