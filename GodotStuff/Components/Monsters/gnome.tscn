@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp8woxgosbx2j"]
+[gd_scene load_steps=5 format=3 uid="uid://c1te53j0o1i0p"]
 
 [ext_resource type="PackedScene" uid="uid://7lub4rpwwag8" path="res://Components/Monsters/monster.tscn" id="1_nn12a"]
 [ext_resource type="Texture2D" uid="uid://qfmimonvt1mh" path="res://Assets/gnome.png" id="1_tf8dh"]

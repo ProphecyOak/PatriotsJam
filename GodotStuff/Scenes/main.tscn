@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ddluhmnwwhj88" path="res://Components/Monsters/eyes_in_the_dark.tscn" id="4_kfgc2"]
 [ext_resource type="AudioStream" uid="uid://d1qiwdmbrvunk" path="res://Assets/Sounds/forestSounds.wav" id="5_88s8g"]
 [ext_resource type="Script" path="res://Scripts/forestSounds.gd" id="6_vrlhh"]
-[ext_resource type="PackedScene" uid="uid://dp8woxgosbx2j" path="res://Components/Monsters/gnome.tscn" id="7_8di42"]
+[ext_resource type="PackedScene" uid="uid://c1te53j0o1i0p" path="res://Components/Monsters/gnome.tscn" id="7_8di42"]
 [ext_resource type="Texture2D" uid="uid://bd61sfwyu2w8m" path="res://Assets/WhiteLight.png" id="8_v36vd"]
 
 [node name="Main" type="Node2D"]
