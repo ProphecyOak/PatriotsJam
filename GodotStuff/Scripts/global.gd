@@ -5,7 +5,7 @@ var isJumpScaresOn = true
 var gameOver = false;
 
 var cribToggleKey = 32 #Spacebar
-var debugKey = 67 #c
+var chargeKey = 67 #c
 
 func toggleSounds():
 	isAudioOn = !isAudioOn

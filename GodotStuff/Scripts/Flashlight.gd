@@ -17,10 +17,9 @@ func _process(_delta):
 func _input(event):
 	if event is InputEventMouseMotion:
 		set_global_position(event.position)
-	elif event is InputEventMouseButton:
-		if event.button_index == 1 && event.pressed == true:
-			switchFlashlight()
-	elif event is InputEventKey && event.is_pressed() && event.keycode==Global.debugKey:
+	elif event is InputEventMouseButton && event.button_index == 2 && event.pressed == true:
+		switchFlashlight()
+	elif event is InputEventKey && event.is_pressed() && event.keycode==Global.chargeKey:
 		chargeHandler()
 
 func switchFlashlight():
