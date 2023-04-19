@@ -1,18 +1,37 @@
-[gd_scene format=3 uid="uid://bl4soqgh152wg"]
+[gd_scene load_steps=2 format=3 uid="uid://bl4soqgh152wg"]
+
+[ext_resource type="Script" path="res://Scripts/endScreen.gd" id="1_8rpde"]
 
 [node name="SampleEndScreen" type="Node2D"]
+script = ExtResource("1_8rpde")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="LoseScreen" type="ColorRect" parent="."]
 offset_left = -80.0
 offset_top = -34.0
 offset_right = 1304.0
 offset_bottom = 714.0
 color = Color(0.709804, 0, 0, 1)
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="Label" type="Label" parent="LoseScreen"]
 layout_mode = 0
 offset_left = 612.0
 offset_top = 324.0
 offset_right = 957.0
 offset_bottom = 521.0
 text = "YOU LOSE!!!"
+
+[node name="WinScreen" type="ColorRect" parent="."]
+visible = false
+offset_left = -80.0
+offset_top = -34.0
+offset_right = 1304.0
+offset_bottom = 714.0
+color = Color(0, 0.435294, 0.396078, 1)
+
+[node name="Label" type="Label" parent="WinScreen"]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 324.0
+offset_right = 957.0
+offset_bottom = 521.0
+text = "YOU WON!!!"
