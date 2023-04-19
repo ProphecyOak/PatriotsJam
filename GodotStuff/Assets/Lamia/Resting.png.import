@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd61sfwyu2w8m"
-path="res://.godot/imported/WhiteLight.png-fdb13b0af1fcde5da5a6a3fce514d53e.ctex"
+uid="uid://d241kp4arxn7n"
+path="res://.godot/imported/Resting.png-a0aa1697d411b44225ac7a1fc311a116.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/WhiteLight.png"
-dest_files=["res://.godot/imported/WhiteLight.png-fdb13b0af1fcde5da5a6a3fce514d53e.ctex"]
+source_file="res://Assets/Lamia/Resting.png"
+dest_files=["res://.godot/imported/Resting.png-a0aa1697d411b44225ac7a1fc311a116.ctex"]
 
 [params]
 

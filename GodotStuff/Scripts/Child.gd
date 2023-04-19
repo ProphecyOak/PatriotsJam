@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
 var isCrying: bool = false
-var location: int = 0
+var location: String = "TopRight"
 
 var midScreen = Vector2(570,300)
 
@@ -11,20 +11,20 @@ func _input(event):
 			soothe()
 	else:
 		if event is InputEventMouseButton && event.button_index == 1 && event.pressed == true:
-			print(get_global_mouse_position())
 			if get_global_mouse_position().y > midScreen.y:
 				if get_global_mouse_position().x > midScreen.x:
 					play("BottomRight")
+					location = "BottomRight"
 				else:
 					play("BottomLeft")
+					location = "BottomLeft"
 			else:
 				if get_global_mouse_position().x > midScreen.x:
 					play("TopRight")
+					location = "TopRight"
 				else:
 					play("TopLeft")
-
-func move():
-	pass
+					location = "TopLeft"
 
 func _on_cry_timer_timeout():
 	if randf() > .5:

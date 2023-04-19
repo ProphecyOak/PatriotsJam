@@ -54,7 +54,6 @@ func onUnspotted():
 #Modifies isEvil and triggers evil behavior
 #evilTimerDone(): void
 func evilTimerDone():
-	print("EVIL HAHAHAHAHAHAH")
 	isEvil = true
 	doEvil()
 

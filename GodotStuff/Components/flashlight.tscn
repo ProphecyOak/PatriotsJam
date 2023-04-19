@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cva3h8yi7js5p"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://Scripts/Flashlight.gd" id="1_83d78"]
 [ext_resource type="AudioStream" uid="uid://b1kjq4vccf58y" path="res://Assets/Sounds/flashlightOn.wav" id="3_f8g3d"]
 [ext_resource type="AudioStream" uid="uid://cos6t478grc1t" path="res://Assets/Sounds/lightSwitchOff.wav" id="4_nfhfm"]
 [ext_resource type="AudioStream" uid="uid://duvw8ipmqu2do" path="res://Assets/Sounds/chargingSoundTest.wav" id="5_iu53h"]
-[ext_resource type="Texture2D" uid="uid://bi452ppa24dtk" path="res://Assets/FlashlightLight.png" id="5_wm6wp"]
+[ext_resource type="Texture2D" uid="uid://bi452ppa24dtk" path="res://Assets/Lights/FlashlightLight.png" id="5_wm6wp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cali8"]
 radius = 151.03
