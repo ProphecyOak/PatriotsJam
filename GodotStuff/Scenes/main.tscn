@@ -49,7 +49,6 @@ Time_Until_Evil = 30
 position = Vector2(581, 536)
 
 [node name="CribView" parent="." instance=ExtResource("1_xr4ry")]
-visible = false
 position = Vector2(-6, -6)
 scale = Vector2(1.01, 1.01)
 
@@ -63,7 +62,7 @@ scale = Vector2(4.72656, 701)
 energy = 0.96
 blend_mode = 1
 range_z_max = 0
-texture = ExtResource("8_v36vd")
+texture = ExtResource("9_piran")
 
 [node name="Battery Remaining" type="Label" parent="."]
 light_mask = 0

@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://bcos1tu3n7u6u"]
+
+[ext_resource type="PackedScene" uid="uid://7lub4rpwwag8" path="res://Components/Monsters/monster.tscn" id="1_1pxev"]
+[ext_resource type="Script" path="res://Scripts/MonsterControllers/Lamia.gd" id="2_7ps36"]
+[ext_resource type="Texture2D" uid="uid://dwxn7akmkj0pq" path="res://Assets/CribView/LamiaBottomLeft.png" id="3_f67o5"]
+[ext_resource type="Texture2D" uid="uid://3l2xywb1ypwm" path="res://Assets/CribView/LamiaBottomRight.png" id="4_86b1r"]
+[ext_resource type="Texture2D" uid="uid://tl1ex1u6pr7n" path="res://Assets/CribView/LamiaTopLeft.png" id="5_soo1g"]
+[ext_resource type="Texture2D" uid="uid://bvfqdmgsa2hpa" path="res://Assets/CribView/LamiaTopRight.png" id="6_ib8nb"]
+[ext_resource type="Texture2D" uid="uid://cio8kmp1y3ci0" path="res://Assets/Lamia/BottomLeft.png" id="7_au6lv"]
+[ext_resource type="Texture2D" uid="uid://m4m7inp5y4k1" path="res://Assets/Lamia/BottomRight.png" id="8_3w2jn"]
+[ext_resource type="Texture2D" uid="uid://cyoi6iudj5b78" path="res://Assets/Lamia/TopLeft.png" id="9_cfv6c"]
+[ext_resource type="Texture2D" uid="uid://b0xiqawy5ijlq" path="res://Assets/Lamia/TopRight.png" id="10_llivb"]
+[ext_resource type="Texture2D" uid="uid://d241kp4arxn7n" path="res://Assets/Lamia/Resting.png" id="11_bmgrj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfx0m"]
+
+[node name="Lamia" instance=ExtResource("1_1pxev")]
+scale = Vector2(1, 1.01757)
+script = ExtResource("2_7ps36")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_vfx0m")
+disabled = true
+
+[node name="Crib" type="Node2D" parent="." index="4"]
+visible = false
+
+[node name="BottomRight" type="Sprite2D" parent="Crib" index="0"]
+visible = false
+texture = ExtResource("3_f67o5")
+
+[node name="BottomLeft" type="Sprite2D" parent="Crib" index="1"]
+visible = false
+texture = ExtResource("4_86b1r")
+
+[node name="TopLeft" type="Sprite2D" parent="Crib" index="2"]
+visible = false
+texture = ExtResource("6_ib8nb")
+
+[node name="TopRight" type="Sprite2D" parent="Crib" index="3"]
+visible = false
+texture = ExtResource("5_soo1g")
+
+[node name="Resting" type="Node2D" parent="Crib" index="4"]
+
+[node name="Room" type="Node2D" parent="." index="5"]
+scale = Vector2(0.3, 0.3)
+
+[node name="BottomLeft" type="Sprite2D" parent="Room" index="0"]
+visible = false
+texture = ExtResource("7_au6lv")
+
+[node name="BottomRight" type="Sprite2D" parent="Room" index="1"]
+visible = false
+texture = ExtResource("8_3w2jn")
+
+[node name="TopLeft" type="Sprite2D" parent="Room" index="2"]
+visible = false
+texture = ExtResource("9_cfv6c")
+
+[node name="TopRight" type="Sprite2D" parent="Room" index="3"]
+visible = false
+texture = ExtResource("10_llivb")
+
+[node name="Resting" type="Sprite2D" parent="Room" index="4"]
+texture = ExtResource("11_bmgrj")
+
+[connection signal="timeout" from="SpotTimer" to="." method="changeCorner"]
