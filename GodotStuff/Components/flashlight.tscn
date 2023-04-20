@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://bnw3ct8hye8vx"]
 
 [ext_resource type="Script" path="res://Scripts/Flashlight.gd" id="1_83d78"]
 [ext_resource type="AudioStream" uid="uid://b1kjq4vccf58y" path="res://Assets/Sounds/flashlightOn.wav" id="3_f8g3d"]
