@@ -6,10 +6,8 @@
 script = ExtResource("1_8rpde")
 
 [node name="LoseScreen" type="ColorRect" parent="."]
-offset_left = -80.0
-offset_top = -34.0
-offset_right = 1304.0
-offset_bottom = 714.0
+offset_right = 1152.0
+offset_bottom = 648.0
 color = Color(0.709804, 0, 0, 1)
 
 [node name="Label" type="Label" parent="LoseScreen"]
@@ -25,14 +23,13 @@ offset_right = 172.5
 offset_bottom = 98.5
 grow_horizontal = 2
 grow_vertical = 2
+text = "YOU LOST!!!"
 horizontal_alignment = 1
 
 [node name="WinScreen" type="ColorRect" parent="."]
 visible = false
-offset_left = -80.0
-offset_top = -34.0
-offset_right = 1304.0
-offset_bottom = 714.0
+offset_right = 1152.0
+offset_bottom = 648.0
 color = Color(0, 0.435294, 0.396078, 1)
 
 [node name="Label" type="Label" parent="WinScreen"]
