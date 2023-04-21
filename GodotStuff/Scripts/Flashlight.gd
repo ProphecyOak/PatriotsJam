@@ -43,7 +43,7 @@ func batteryHandler():
 
 
 func litAreaEntered(area):
-	if area.has_method("spotted") && isLightOn:
+	if area.has_method("spotted") && isLightOn && !Global.isWatchingCrib:
 		area.spotted()
 
 func litAreaExited(area):
@@ -67,3 +67,17 @@ func chargeHandler():
 	await get_tree().create_timer(10).timeout
 	$BatteryTimer.start(currentBattery + 10)
 	pauseBattery = false
+
+
+#Shuts down flashlight when jump scare occurs
+#OPTIMIZE FOR ANY MONSTER!!!!
+
+	
+	
+
+
+func _on_gnome_game_over():
+	visible = false;
+	pauseBattery = true
+	isLightOn = false
+	print("flashlight off!")

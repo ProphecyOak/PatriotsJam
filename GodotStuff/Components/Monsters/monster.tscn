@@ -15,6 +15,11 @@ one_shot = true
 
 [node name="Scare" type="AnimatedSprite2D" parent="."]
 visible = false
+visibility_layer = 3
+
+[node name="scareSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Default" type="Sprite2D" parent="."]
 
 [connection signal="timeout" from="SpotTimer" to="." method="spotTimerDone"]
 [connection signal="timeout" from="EvilTimer" to="." method="evilTimerDone"]

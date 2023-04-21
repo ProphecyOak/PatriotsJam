@@ -24,6 +24,13 @@ func onUnspotted():
 #doEvil(): void
 func doEvil():
 	super()
+	position = Vector2(600, 200)
+	$Scare.visible = true;
+	$Scare.play("jumpScare")
+	$Default.visible = false;
+	$scareSound.play()
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
 
 
 func spotTimerDone():
@@ -39,3 +46,4 @@ func evilTimerDone():
 	print("EVIL HAHAHAHAHAHAH")
 	isEvil = true
 	doEvil()
+

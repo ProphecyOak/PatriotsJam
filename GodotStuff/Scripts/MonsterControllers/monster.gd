@@ -60,11 +60,9 @@ func evilTimerDone():
 #Evil behavior
 #doEvil(): void
 func doEvil():
+	gameOver.emit()
 	print("hahahah you lose because im evil now -"+name)
 	Global.gameOver = true;
-	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
 	#gameOver.emit()
 
-func jumpScare(anim="default"):
-	$Scare.visible = true
-	$Scare.play(anim)
+

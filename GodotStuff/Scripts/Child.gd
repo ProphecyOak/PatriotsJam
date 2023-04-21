@@ -7,7 +7,7 @@ var midScreen = Vector2(570,300)
 
 func _input(event):
 	if isCrying:
-		if event is InputEventKey && event.keycode == 83 && $"../..".isWatchingCrib:
+		if event is InputEventKey && event.keycode == 83 && Global.isWatchingCrib:
 			soothe()
 	else:
 		if event is InputEventMouseButton && event.button_index == 1 && event.pressed == true:
