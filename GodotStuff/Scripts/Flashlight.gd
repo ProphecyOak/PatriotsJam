@@ -47,7 +47,7 @@ func litAreaEntered(area):
 		area.spotted()
 
 func litAreaExited(area):
-	if area.has_method("unspotted") && isLightOn:
+	if area.has_method("unspotted") && isLightOn && !Global.isWatchingCrib:
 		area.unspotted()
 		
 
