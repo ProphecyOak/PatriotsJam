@@ -3,6 +3,9 @@ extends  Monster
 #var for blink animation max time
 @export var blinkMaxTime: int = 5;
 
+#toggles camera zoom
+signal zoomCamera
+
 func _ready():
 	super()
 	$animationTimer.start(randi_range(0,6));
@@ -23,6 +26,7 @@ func doEvil():
 	super()
 	position = Vector2(600, 372)
 	$Scare.visible = true;
+	emit_signal("zoomCamera")
 	$Scare.play("jumpScare")
 	$open.visible = false;
 	$mid.visible = false;

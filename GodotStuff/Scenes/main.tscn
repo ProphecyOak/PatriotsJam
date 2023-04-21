@@ -79,4 +79,6 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 323)
 
+[connection signal="zoomCamera" from="RoomMonsters/EyesInTheDark" to="." method="_on_eyes_in_the_dark_zoom_camera"]
+[connection signal="zoomCamera" from="RoomMonsters/gnome" to="." method="_on_gnome_zoom_camera"]
 [connection signal="timeout" from="NightTimer" to="." method="NightOver"]

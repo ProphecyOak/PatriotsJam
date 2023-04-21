@@ -9,6 +9,7 @@ class_name Monster
 var inLight: bool = false
 var isEvil: bool = false
 
+
 #Generates random Time based within delta% of value either way
 #rndTime(timeBase: int, delta: int): float
 func rndTime(timeBase: int, delta: int = 20):
@@ -70,4 +71,5 @@ func jumpScare(anim="jumpScare"):
 	if Global.isJumpScaresOn:
 		$Scare.visible = true
 		$Scare.play(anim)
-		await get_tree().create_timer(2).timeout
+		$scareSound.play()
+		await get_tree().create_timer(1).timeout

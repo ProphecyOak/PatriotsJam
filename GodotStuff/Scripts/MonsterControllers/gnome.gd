@@ -2,6 +2,9 @@ extends  Monster
 
 var spottedLately = false
 
+#toggles zoom for camera2D
+signal zoomCamera
+
 func _ready():
 	$SpotTimer.start(randi_range(4,10))
 
@@ -26,6 +29,7 @@ func doEvil():
 	super()
 	position = Vector2(600, 200)
 	$Default.visible = false;
+	emit_signal("zoomCamera")
 	jumpScare()
 
 
