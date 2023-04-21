@@ -25,12 +25,8 @@ func onUnspotted():
 func doEvil():
 	super()
 	position = Vector2(600, 200)
-	$Scare.visible = true;
-	$Scare.play("jumpScare")
 	$Default.visible = false;
-	$scareSound.play()
-	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
+	jumpScare()
 
 
 func spotTimerDone():
@@ -40,10 +36,3 @@ func spotTimerDone():
 	print ("spawned at " + str(position))
 	if !inLight:
 		onUnspotted()
-
-
-func evilTimerDone():
-	print("EVIL HAHAHAHAHAHAH")
-	isEvil = true
-	doEvil()
-

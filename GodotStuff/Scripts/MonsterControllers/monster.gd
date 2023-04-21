@@ -62,11 +62,12 @@ func doEvil():
 	print("hahahah you lose because im evil now -"+name)
 	Global.gameOver = true;
 	Global.monsterLostTo = name
-	if Global.isJumpScaresOn:
-		jumpScare()
-		await get_tree().create_timer(2).timeout
+	await jumpScare()
 	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
 
 func jumpScare(anim="jumpScare"):
-	$Scare.visible = true
-	$Scare.play(anim)
+	Global.flashlight._on_battery_timer_timeout()
+	if Global.isJumpScaresOn:
+		$Scare.visible = true
+		$Scare.play(anim)
+		await get_tree().create_timer(2).timeout

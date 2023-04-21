@@ -4,6 +4,7 @@ extends Node2D
 func _ready():
 	$NightTimer.start(Global.timeTillWin)
 	Global.mainCam = $Camera2D
+	Global.flashlight = $Flashlight
 
 func _input(event):
 	if event is InputEventKey && event.keycode==Global.cribToggleKey && event.is_pressed():

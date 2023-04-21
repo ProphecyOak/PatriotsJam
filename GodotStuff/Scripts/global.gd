@@ -6,6 +6,7 @@ var gameOver = false
 var monsterLostTo = ""
 var isWatchingCrib = false
 var mainCam = null
+var flashlight = null
 
 var cribToggleKey = 32 #Spacebar
 var chargeKey = 67 #c
