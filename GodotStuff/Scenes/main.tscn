@@ -47,11 +47,11 @@ scales = Array[float]([0.1, 0.2, 0.1, 0.15, 0.3])
 [node name="EyesInTheDark" parent="RoomMonsters" instance=ExtResource("4_kfgc2")]
 z_index = 1
 position = Vector2(908, 246)
-Time_Until_Evil = 30
+Time_Until_Evil = 10
 
 [node name="gnome" parent="RoomMonsters" instance=ExtResource("7_8di42")]
 position = Vector2(581, 536)
-Time_Until_Evil = 5
+Time_Until_Evil = 10
 
 [node name="Flashlight" parent="." instance=ExtResource("2_gacur")]
 position = Vector2(527, 294)
@@ -79,6 +79,8 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 323)
 
+[connection signal="gameOver" from="RoomMonsters/EyesInTheDark" to="." method="_on_eyes_in_the_dark_game_over"]
+[connection signal="gameOver" from="RoomMonsters/EyesInTheDark" to="Flashlight" method="_on_eyes_in_the_dark_game_over"]
 [connection signal="gameOver" from="RoomMonsters/gnome" to="." method="_on_gnome_game_over"]
 [connection signal="gameOver" from="RoomMonsters/gnome" to="Flashlight" method="_on_gnome_game_over"]
 [connection signal="timeout" from="NightTimer" to="." method="NightOver"]

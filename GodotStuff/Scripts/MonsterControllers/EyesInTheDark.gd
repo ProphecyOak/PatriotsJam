@@ -21,6 +21,15 @@ func onUnspotted():
 #doEvil(): void
 func doEvil():
 	super()
+	position = Vector2(600, 372)
+	$Scare.visible = true;
+	$Scare.play("jumpScare")
+	$open.visible = false;
+	$mid.visible = false;
+	$closed.visible = false;
+	$scareSound.play()
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
 
 #Animation behavior/ resetting timer
 #_on_animatopn_timer_timeout(): void

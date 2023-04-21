@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddluhmnwwhj88"]
+[gd_scene load_steps=12 format=3 uid="uid://ddluhmnwwhj88"]
 
 [ext_resource type="PackedScene" uid="uid://7lub4rpwwag8" path="res://Components/Monsters/monster.tscn" id="1_ymm5g"]
 [ext_resource type="Script" path="res://Scripts/MonsterControllers/EyesInTheDark.gd" id="2_g2ld3"]
 [ext_resource type="Texture2D" uid="uid://em2xjbr2jw5j" path="res://Assets/Eyes/RoundEyes.png" id="3_nntga"]
 [ext_resource type="Texture2D" uid="uid://dcho231kq6eip" path="res://Assets/Eyes/RoundEyesBlink2.png" id="4_1osmg"]
 [ext_resource type="Texture2D" uid="uid://cwb3c32ig7mxv" path="res://Assets/Eyes/RoundEyesBlink1.png" id="4_5ncyt"]
+[ext_resource type="Texture2D" uid="uid://546wi2eicn8" path="res://Assets/Eyes/eyes.png" id="6_7fkhy"]
+[ext_resource type="AudioStream" uid="uid://bvdc2isdna5hl" path="res://Assets/Sounds/eyesSound.wav" id="7_fwpda"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4j0s"]
 radius = 15.0
@@ -55,6 +57,17 @@ _data = {
 "blink": SubResource("Animation_skc5k")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsccs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7fkhy")
+}],
+"loop": true,
+"name": &"jumpScare",
+"speed": 5.0
+}]
+
 [node name="EyesInTheDark" instance=ExtResource("1_ymm5g")]
 script = ExtResource("2_g2ld3")
 blinkMaxTime = 5
@@ -86,5 +99,15 @@ libraries = {
 }
 
 [node name="animationTimer" type="Timer" parent="." index="7"]
+
+[node name="Scare" parent="." index="8"]
+z_index = 2
+position = Vector2(33, -9.00002)
+scale = Vector2(0.447205, 0.382487)
+sprite_frames = SubResource("SpriteFrames_fsccs")
+animation = &"jumpScare"
+
+[node name="scareSound" parent="." index="9"]
+stream = ExtResource("7_fwpda")
 
 [connection signal="timeout" from="animationTimer" to="." method="_on_animation_timer_timeout"]

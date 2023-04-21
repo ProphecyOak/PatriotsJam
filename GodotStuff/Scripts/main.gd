@@ -30,3 +30,8 @@ func _on_gnome_game_over():
 	$Camera2D.zoom.y += 1;
 
 	
+
+
+func _on_eyes_in_the_dark_game_over():
+	$Camera2D.zoom.x += 1;
+	$Camera2D.zoom.y += 1;

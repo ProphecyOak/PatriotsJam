@@ -81,3 +81,10 @@ func _on_gnome_game_over():
 	pauseBattery = true
 	isLightOn = false
 	print("flashlight off!")
+
+
+func _on_eyes_in_the_dark_game_over():
+	visible = false;
+	pauseBattery = true
+	isLightOn = false
+	print("flashlight off!")
