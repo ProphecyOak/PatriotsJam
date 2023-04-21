@@ -3,6 +3,7 @@ extends Node2D
 
 func _ready():
 	$NightTimer.start(Global.timeTillWin)
+	Global.mainCam = $Camera2D
 
 func _input(event):
 	if event is InputEventKey && event.keycode==Global.cribToggleKey && event.is_pressed():
@@ -16,22 +17,10 @@ func NightOver():
 
 var shake_amount = 15.0
 
-func _process(delta):
+func _process(_delta):
 	if Global.gameOver:
 		$Camera2D.set_offset(Vector2( \
-			randi_range(-1.0, 1.0) * shake_amount, \
-			randi_range(-1.0, 1.0) * shake_amount \
+			randi_range(-1, 1) * shake_amount, \
+			randi_range(-1, 1) * shake_amount \
 		))		#DEBUG
 		$RoomMonsters.visible = true
-
-
-func _on_gnome_game_over():
-	$Camera2D.zoom.x += 1;
-	$Camera2D.zoom.y += 1;
-
-	
-
-
-func _on_eyes_in_the_dark_game_over():
-	$Camera2D.zoom.x += 1;
-	$Camera2D.zoom.y += 1;

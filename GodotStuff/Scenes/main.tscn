@@ -79,8 +79,4 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 323)
 
-[connection signal="gameOver" from="RoomMonsters/EyesInTheDark" to="." method="_on_eyes_in_the_dark_game_over"]
-[connection signal="gameOver" from="RoomMonsters/EyesInTheDark" to="Flashlight" method="_on_eyes_in_the_dark_game_over"]
-[connection signal="gameOver" from="RoomMonsters/gnome" to="." method="_on_gnome_game_over"]
-[connection signal="gameOver" from="RoomMonsters/gnome" to="Flashlight" method="_on_gnome_game_over"]
 [connection signal="timeout" from="NightTimer" to="." method="NightOver"]

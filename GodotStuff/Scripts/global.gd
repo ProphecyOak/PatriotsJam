@@ -2,8 +2,10 @@ extends Node
 
 var isAudioOn = true
 var isJumpScaresOn = true
-var gameOver = false;
-var isWatchingCrib = false;
+var gameOver = false
+var monsterLostTo = ""
+var isWatchingCrib = false
+var mainCam = null
 
 var cribToggleKey = 32 #Spacebar
 var chargeKey = 67 #c
@@ -18,3 +20,8 @@ func toggleSounds():
 func toggleJumpScares():
 	isJumpScaresOn = !isJumpScaresOn
 	print("Jump Scares on: "+str(isJumpScaresOn))
+
+func toggleGameOver(monster):
+	gameOver = true
+	monsterLostTo = monster
+	mainCam.zoom += Vector2(1,1)

@@ -4,7 +4,6 @@ class_name Monster
 #Exports timer lengths
 @export var Time_Until_Evil: int = 15
 @export var Time_Until_Reappear: int = 5
-signal gameOver;
 
 #initializes lit and evil qualities
 var inLight: bool = false
@@ -60,9 +59,14 @@ func evilTimerDone():
 #Evil behavior
 #doEvil(): void
 func doEvil():
-	gameOver.emit()
 	print("hahahah you lose because im evil now -"+name)
 	Global.gameOver = true;
-	#gameOver.emit()
+	Global.monsterLostTo = name
+	if Global.isJumpScaresOn:
+		jumpScare()
+		await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
 
-
+func jumpScare(anim="jumpScare"):
+	$Scare.visible = true
+	$Scare.play(anim)
