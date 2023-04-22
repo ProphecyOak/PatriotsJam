@@ -7,10 +7,10 @@ var midScreen = Vector2(570,300)
 
 func _input(event):
 	if isCrying:
-		if event is InputEventKey && event.keycode == 83 && Global.isWatchingCrib:
+		if event is InputEventKey && event.keycode == 83 && Global.isWatchingCrib && Global.flashlight.isLightOn:
 			soothe()
 	else:
-		if event is InputEventMouseButton && event.button_index == 1 && event.pressed == true:
+		if event is InputEventMouseButton && event.button_index == 1 && event.pressed == true && Global.flashlight.isLightOn:
 			if get_global_mouse_position().y > midScreen.y:
 				if get_global_mouse_position().x > midScreen.x:
 					play("BottomRight")

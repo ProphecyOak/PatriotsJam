@@ -7,6 +7,7 @@ var monsterLostTo = ""
 var isWatchingCrib = false
 var mainCam = null
 var flashlight = null
+var monsters = []
 
 var cribToggleKey = 32 #Spacebar
 var chargeKey = 67 #c
@@ -23,6 +24,16 @@ func toggleJumpScares():
 	print("Jump Scares on: "+str(isJumpScaresOn))
 
 func toggleGameOver(monster):
-	gameOver = true
-	monsterLostTo = monster
-	mainCam.zoom += Vector2(1,1)
+	if !gameOver:
+		gameOver = true
+		monsterLostTo = monster
+		for m in monsters:
+			if m.name != monsterLostTo:
+				m.visible = false
+		mainCam.zoom += Vector2(1,1)
+	
+func toggleGameNotOver():
+	if gameOver:
+		gameOver = false
+		monsterLostTo = ""
+		mainCam.zoom -= Vector2(1,1)
