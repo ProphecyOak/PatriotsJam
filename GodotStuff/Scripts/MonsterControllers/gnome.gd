@@ -26,11 +26,9 @@ func onUnspotted():
 #Evil behavior
 #doEvil(): void
 func doEvil():
-	super()
 	position = Vector2(600, 200)
 	$Default.visible = false;
-	emit_signal("zoomCamera")
-	jumpScare()
+	super()
 
 
 func spotTimerDone():

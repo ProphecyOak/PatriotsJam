@@ -60,9 +60,7 @@ func evilTimerDone():
 #Evil behavior
 #doEvil(): void
 func doEvil():
-	print("hahahah you lose because im evil now -"+name)
-	Global.gameOver = true;
-	Global.monsterLostTo = name
+	Global.toggleGameOver(name)
 	await jumpScare()
 	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
 
