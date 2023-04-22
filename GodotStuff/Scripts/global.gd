@@ -36,4 +36,3 @@ func toggleGameNotOver():
 	if gameOver:
 		gameOver = false
 		monsterLostTo = ""
-		mainCam.zoom -= Vector2(1,1)
