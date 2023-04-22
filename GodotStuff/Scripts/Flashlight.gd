@@ -1,7 +1,7 @@
 extends Area2D
 
 var isLightOn: bool = false
-@onready var percentIndicator = $"../Battery Remaining"
+@onready var percentIndicator = $"../UI/Battery Remaining"
 
 var pauseBattery = false
 
@@ -31,6 +31,10 @@ func _input(event):
 
 func switchFlashlight():
 	if !pauseBattery:
+		if !isLightOn:
+			Global.makeSubtitle($on,0,"Flashlight Clicks On",.5)
+		else:
+			Global.makeSubtitle($off,0,"Flashlight Clicks Off",.5)
 		lightAudioHandler()
 		isLightOn = !isLightOn
 		visible = isLightOn
@@ -66,6 +70,7 @@ func _on_battery_timer_timeout():
 #handle charging
 func chargeHandler():
 	$chargingSound.play()
+	Global.makeSubtitle($chargingSound,1,"Flashlight Charging")
 	var currentBattery = $BatteryTimer.get_time_left()
 	$BatteryTimer.set_paused(true)
 	pauseBattery = true

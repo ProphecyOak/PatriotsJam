@@ -15,6 +15,9 @@ var chargeKey = 67 #c
 var timeTillWin = 500
 var won = false
 
+var subtitleContainer: VBoxContainer = null
+@onready var packedSubtitle = load("res://Components/subtitleLabel.tscn")
+
 func toggleSounds():
 	isAudioOn = !isAudioOn
 	print("Sounds on: "+str(isAudioOn))
@@ -36,3 +39,8 @@ func toggleGameNotOver():
 	if gameOver:
 		gameOver = false
 		monsterLostTo = ""
+
+func makeSubtitle(player, type=0, text="", length=3.0): #0 for instant, 1 for not
+	var newSubtitle = packedSubtitle.instantiate()
+	subtitleContainer.add_child(newSubtitle)
+	newSubtitle.attachPlayer(player, type, text, length)

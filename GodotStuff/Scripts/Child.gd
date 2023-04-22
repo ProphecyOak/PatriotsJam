@@ -35,6 +35,7 @@ func _on_cry_timer_timeout():
 func cry():
 	isCrying = true
 	$Cry.play()
+	Global.makeSubtitle($Cry,1,"Child Crying")
 
 func soothe():
 	isCrying = false
