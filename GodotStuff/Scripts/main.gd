@@ -7,7 +7,7 @@ func _ready():
 	Global.flashlight = $Flashlight
 
 func _input(event):
-	if event is InputEventKey && event.keycode==Global.cribToggleKey && event.is_pressed():
+	if event is InputEventKey && event.keycode==Global.cribToggleKey && event.is_pressed() && !$Flashlight.charging:
 		Global.isWatchingCrib = !Global.isWatchingCrib
 		$CribView.showCrib(Global.isWatchingCrib)
 		$RoomMonsters.visible = !Global.isWatchingCrib

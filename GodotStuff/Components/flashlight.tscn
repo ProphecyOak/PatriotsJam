@@ -27,6 +27,8 @@ wait_time = 100.0
 one_shot = true
 
 [node name="chargeTimer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
 
 [node name="chargingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_iu53h")

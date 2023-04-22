@@ -28,10 +28,12 @@ func onUnspotted():
 	pass
 
 func checkJumpScare():
+	print(isEvil)
 	if isEvil:
 		super.doEvil()
 
 func doEvil():
+	isEvil = false
 	if $"../Child".location == place:
 		isEvil = true
 	else:
