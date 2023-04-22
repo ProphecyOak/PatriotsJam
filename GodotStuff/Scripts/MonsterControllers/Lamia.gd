@@ -26,9 +26,14 @@ func onSpotted():
 	pass
 func onUnspotted():
 	pass
+
+func checkJumpScare():
+	if isEvil:
+		super.doEvil()
+
 func doEvil():
 	if $"../Child".location == place:
-		super()
+		isEvil = true
 	else:
 		changeCorner(0)
 

@@ -62,7 +62,7 @@ func evilTimerDone():
 func doEvil():
 	Global.toggleGameOver(name)
 	await jumpScare()
-	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/endScreen.tscn")
 
 func jumpScare(anim="jumpScare"):
 	Global.flashlight._on_battery_timer_timeout()

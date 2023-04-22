@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://driu76so4wp8v" path="res://Assets/CribView/TopRight.png" id="5_ygt5i"]
 [ext_resource type="Script" path="res://Scripts/Child.gd" id="6_sgs4x"]
 [ext_resource type="AudioStream" uid="uid://cgwxgqtvpsp26" path="res://Assets/Sounds/Crying.wav" id="7_lcmag"]
-[ext_resource type="PackedScene" uid="uid://bcos1tu3n7u6u" path="res://Components/Monsters/lamia.tscn" id="8_uqau4"]
+[ext_resource type="PackedScene" uid="uid://dwcuoxoab1vob" path="res://Components/Monsters/lamia.tscn" id="8_uqau4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hd0rv"]
 animations = [{

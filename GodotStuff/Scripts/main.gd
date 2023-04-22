@@ -25,13 +25,3 @@ func _process(_delta):
 			randi_range(-1, 1) * shake_amount \
 		))		#DEBUG
 		$RoomMonsters.visible = true
-
-
-func _on_gnome_zoom_camera():
-	$Camera2D.zoom.x += 1
-	$Camera2D.zoom.y += 1
-
-
-func _on_eyes_in_the_dark_zoom_camera():
-	$Camera2D.zoom.x += 1
-	$Camera2D.zoom.y += 1
