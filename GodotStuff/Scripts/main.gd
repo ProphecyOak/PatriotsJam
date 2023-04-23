@@ -17,7 +17,7 @@ func _input(event):
 
 func NightOver():
 	Global.won = true
-	get_tree().change_scene_to_file("res://Scenes/sample_end_screen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/walkingUpScene.tscn")
 
 var shake_amount = 15.0
 
