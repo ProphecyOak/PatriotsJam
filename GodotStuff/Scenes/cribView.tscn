@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://dln85sh0iphtg"]
+
+[ext_resource type="Script" path="res://Scripts/cribView.gd" id="1_ivyc6"]
+[ext_resource type="Texture2D" uid="uid://dmkkki7ggatpn" path="res://Assets/CribView/Crib.png" id="1_uoscv"]
+[ext_resource type="Texture2D" uid="uid://bxvyf6iqgqw6l" path="res://Assets/CribView/BottomLeft.png" id="2_kpfr4"]
+[ext_resource type="Texture2D" uid="uid://gjs28rs6icd4" path="res://Assets/CribView/BottomRight.png" id="3_4dar5"]
+[ext_resource type="Texture2D" uid="uid://bdinmu28q70qu" path="res://Assets/CribView/TopLeft.png" id="4_ddjpg"]
+[ext_resource type="Texture2D" uid="uid://driu76so4wp8v" path="res://Assets/CribView/TopRight.png" id="5_ygt5i"]
+[ext_resource type="Script" path="res://Scripts/Child.gd" id="6_sgs4x"]
+[ext_resource type="AudioStream" uid="uid://cgwxgqtvpsp26" path="res://Assets/Sounds/Crying.wav" id="7_lcmag"]
+[ext_resource type="PackedScene" uid="uid://dwcuoxoab1vob" path="res://Components/Monsters/lamia.tscn" id="8_uqau4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hd0rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kpfr4")
+}],
+"loop": true,
+"name": &"BottomLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4dar5")
+}],
+"loop": true,
+"name": &"BottomRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ddjpg")
+}],
+"loop": true,
+"name": &"TopLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ygt5i")
+}],
+"loop": true,
+"name": &"TopRight",
+"speed": 5.0
+}]
+
+[node name="CribView" type="Node2D"]
+script = ExtResource("1_ivyc6")
+
+[node name="Crib" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+texture = ExtResource("1_uoscv")
+
+[node name="Child" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_hd0rv")
+animation = &"TopRight"
+script = ExtResource("6_sgs4x")
+
+[node name="CryTimer" type="Timer" parent="Child"]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
+[node name="Cry" type="AudioStreamPlayer2D" parent="Child"]
+stream = ExtResource("7_lcmag")
+
+[node name="Lamia" parent="." instance=ExtResource("8_uqau4")]
+position = Vector2(576, 324)
+Time_Until_Reappear = 10
+
+[connection signal="timeout" from="Child/CryTimer" to="Child" method="_on_cry_timer_timeout"]

@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvaer8y0kfl00"]
+
+[ext_resource type="Script" path="res://Scenes/win_cutscene.gd" id="1_xkufc"]
+[ext_resource type="Texture2D" uid="uid://cg4sfvq8ms3ak" path="res://Assets/Room.png" id="2_acddy"]
+[ext_resource type="AudioStream" uid="uid://b1kjq4vccf58y" path="res://Assets/Sounds/flashlightOn.wav" id="3_fwccf"]
+[ext_resource type="AudioStream" uid="uid://345tfqeijstm" path="res://Assets/Sounds/walking.wav" id="4_s6dia"]
+[ext_resource type="PackedScene" uid="uid://bbjc8mwkogh7g" path="res://Components/Monsters/snipe.tscn" id="5_e500n"]
+
+[sub_resource type="Animation" id="Animation_pdnjp"]
+resource_name = "walkingUp"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1.2, 1.2), Vector2(1.4, 1.4), Vector2(1.7, 1.7), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p6kyl"]
+_data = {
+"walkingUp": SubResource("Animation_pdnjp")
+}
+
+[node name="walkingUpScene" type="Node2D"]
+script = ExtResource("1_xkufc")
+
+[node name="RoomView" type="Sprite2D" parent="."]
+position = Vector2(576.5, 323)
+scale = Vector2(0.301, 0.3)
+texture = ExtResource("2_acddy")
+
+[node name="lightOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fwccf")
+pitch_scale = 1.56
+
+[node name="eventTimer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 325)
+zoom = Vector2(2, 2)
+
+[node name="footSteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_s6dia")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p6kyl")
+}
+
+[node name="WindowHider" type="Polygon2D" parent="."]
+clip_children = 1
+position = Vector2(0, 1)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(25, -11, 28, 320, 175, 245, 177, -22)
+
+[node name="daylightColor" type="ColorRect" parent="WindowHider"]
+light_mask = 0
+offset_left = -22.0
+offset_top = -36.0
+offset_right = 242.0
+offset_bottom = 374.0
+color = Color(0.329412, 0.619608, 0.996078, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Snipe" parent="WindowHider" instance=ExtResource("5_e500n")]
+visible = false
+position = Vector2(74, 86)
+scale = Vector2(0.2, 0.2)
+flyingLast = 1
+standingLast = 4
+locations = Array[Vector2]([Vector2(111, 46), Vector2(74, 86), Vector2(29, 82), Vector2(50, 103), Vector2(108, 163)])
+scales = Array[float]([0.1, 0.2, 0.1, 0.15, 0.3])
+
+[connection signal="finished" from="lightOn" to="." method="_on_light_on_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

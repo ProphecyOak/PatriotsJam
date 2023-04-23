@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://jbov7od8oxhj"]
+
+[ext_resource type="Script" path="res://Scripts/options.gd" id="1_gosos"]
+[ext_resource type="Texture2D" uid="uid://c36wlyq1n0v67" path="res://Assets/ButtonArt/VolumeButton.png" id="2_46w6g"]
+[ext_resource type="Texture2D" uid="uid://dyeo2k230angc" path="res://Assets/ButtonArt/VolumeButtonOff.png" id="2_hsnat"]
+[ext_resource type="PackedScene" uid="uid://ugb08dhe0y3m" path="res://Components/backButton.tscn" id="2_vbuy0"]
+[ext_resource type="Texture2D" uid="uid://cajebwn3x7p6t" path="res://Assets/ButtonArt/JumpScareButton.png" id="3_57ylc"]
+[ext_resource type="Texture2D" uid="uid://ffk23k0elxoj" path="res://Assets/ButtonArt/JumpScareButtonOff.png" id="5_7mnyq"]
+
+[sub_resource type="Theme" id="Theme_ltsxw"]
+default_font_size = 50
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qmb1r"]
+texture = ExtResource("2_46w6g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d4hgx"]
+texture = ExtResource("2_46w6g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5j0b2"]
+texture = ExtResource("2_hsnat")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bs64k"]
+texture = ExtResource("3_57ylc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f3wdk"]
+texture = ExtResource("3_57ylc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nhynj"]
+texture = ExtResource("5_7mnyq")
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_gosos")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -75.5
+offset_right = 95.5
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ltsxw")
+text = "Options"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sounds" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qmb1r")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d4hgx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5j0b2")
+toggle_mode = true
+
+[node name="JumpScares" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_bs64k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f3wdk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nhynj")
+toggle_mode = true
+
+[node name="Back" parent="." instance=ExtResource("2_vbuy0")]
+layout_mode = 0
+offset_left = -541.0
+offset_top = -300.0
+offset_right = -491.0
+offset_bottom = -250.0
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Sounds" to="." method="_on_sounds_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/JumpScares" to="." method="_on_jump_scares_pressed"]

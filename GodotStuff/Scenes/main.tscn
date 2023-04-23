@@ -1,57 +1,124 @@
-[gd_scene load_steps=7 format=3 uid="uid://mn16cfky20at"]
+[gd_scene load_steps=12 format=3 uid="uid://mn16cfky20at"]
 
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_2ym7g"]
 [ext_resource type="Texture2D" uid="uid://cg4sfvq8ms3ak" path="res://Assets/Room.png" id="1_bmksb"]
-[ext_resource type="PackedScene" uid="uid://cva3h8yi7js5p" path="res://Components/flashlight.tscn" id="2_gacur"]
+[ext_resource type="PackedScene" uid="uid://dln85sh0iphtg" path="res://Scenes/cribView.tscn" id="1_xr4ry"]
+[ext_resource type="PackedScene" uid="uid://bnw3ct8hye8vx" path="res://Components/flashlight.tscn" id="2_gacur"]
 [ext_resource type="PackedScene" uid="uid://bbjc8mwkogh7g" path="res://Components/Monsters/snipe.tscn" id="3_bhjst"]
 [ext_resource type="PackedScene" uid="uid://ddluhmnwwhj88" path="res://Components/Monsters/eyes_in_the_dark.tscn" id="4_kfgc2"]
 [ext_resource type="AudioStream" uid="uid://d1qiwdmbrvunk" path="res://Assets/Sounds/forestSounds.wav" id="5_88s8g"]
-[ext_resource type="Script" path="res://Scenes/forestSounds.gd" id="6_dhk3a"]
+[ext_resource type="Script" path="res://Scripts/forestSounds.gd" id="6_vrlhh"]
+[ext_resource type="PackedScene" uid="uid://c1te53j0o1i0p" path="res://Components/Monsters/gnome.tscn" id="7_8di42"]
+[ext_resource type="Texture2D" uid="uid://bd61sfwyu2w8m" path="res://Assets/Lights/WhiteLight.png" id="9_piran"]
+[ext_resource type="PackedScene" uid="uid://kxe6yq6jqfgs" path="res://Components/outlet_area.tscn" id="11_3qfob"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_2ym7g")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="forestSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_88s8g")
+volume_db = -27.789
+script = ExtResource("6_vrlhh")
+
+[node name="RoomView" type="Sprite2D" parent="."]
 position = Vector2(576.5, 323)
-scale = Vector2(0.30026, 0.299074)
+scale = Vector2(0.301, 0.3)
 texture = ExtResource("1_bmksb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1153.0
-offset_bottom = 646.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0.0941176, 0.0941176, 0.0941176, 0.968627)
+[node name="CribView" parent="." instance=ExtResource("1_xr4ry")]
+position = Vector2(-6, -6)
+scale = Vector2(1.01, 1.01)
 
-[node name="Flashlight" parent="." instance=ExtResource("2_gacur")]
-position = Vector2(527, 294)
+[node name="RoomMonsters" type="Node2D" parent="."]
 
-[node name="Monsters" type="Node2D" parent="."]
-
-[node name="EyesInTheDark" parent="Monsters" instance=ExtResource("4_kfgc2")]
-position = Vector2(976, 236)
-blinkMaxTime = 6
-
-[node name="WindowHider" type="Polygon2D" parent="Monsters"]
+[node name="WindowHider" type="Polygon2D" parent="RoomMonsters"]
 clip_children = 1
 position = Vector2(0, 1)
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(25, -11, 28, 320, 175, 245, 177, -22)
 
-[node name="Snipe" parent="Monsters/WindowHider" instance=ExtResource("3_bhjst")]
+[node name="daylightColor" type="ColorRect" parent="RoomMonsters/WindowHider"]
+light_mask = 0
+offset_left = -22.0
+offset_top = -36.0
+offset_right = 242.0
+offset_bottom = 374.0
+color = Color(0.329412, 0.619608, 0.996078, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Snipe" parent="RoomMonsters/WindowHider" instance=ExtResource("3_bhjst")]
 visible = false
 position = Vector2(74, 86)
 scale = Vector2(0.2, 0.2)
+moveSpeed = 15
 flyingLast = 1
 standingLast = 4
 locations = Array[Vector2]([Vector2(111, 46), Vector2(74, 86), Vector2(29, 82), Vector2(50, 103), Vector2(108, 163)])
 scales = Array[float]([0.1, 0.2, 0.1, 0.15, 0.3])
 
-[node name="forestSounds" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_88s8g")
-volume_db = -27.789
-script = ExtResource("6_dhk3a")
+[node name="EyesInTheDark" parent="RoomMonsters" instance=ExtResource("4_kfgc2")]
+z_index = 1
+position = Vector2(908, 246)
+blinkMaxTime = 10
+Time_Until_Reappear = 10
 
-[node name="Battery Remaining" type="Label" parent="."]
-offset_left = 29.0
-offset_top = 21.0
-offset_right = 143.0
-offset_bottom = 52.0
+[node name="gnome" parent="RoomMonsters" instance=ExtResource("7_8di42")]
+position = Vector2(581, 536)
+Time_Until_Evil = 15
+Time_Until_Reappear = 10
+
+[node name="Flashlight" parent="." instance=ExtResource("2_gacur")]
+position = Vector2(527, 294)
+
+[node name="Darkness" type="PointLight2D" parent="."]
+z_index = 2
+position = Vector2(571, 314.5)
+scale = Vector2(4.72656, 701)
+energy = 0.96
+blend_mode = 1
+range_z_max = 0
+texture = ExtResource("9_piran")
+
+[node name="UI" type="Control" parent="."]
+light_mask = 0
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 600.0
+
+[node name="Battery Remaining" type="Label" parent="UI"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.0
+offset_right = 57.0
+offset_bottom = 31.0
+grow_horizontal = 2
 text = "100%"
+horizontal_alignment = 2
+
+[node name="Subtitles" type="VBoxContainer" parent="UI"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -116.0
+offset_right = 132.0
+grow_vertical = 0
+alignment = 2
+
+[node name="NightTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 323)
+
+[node name="outletArea" parent="." instance=ExtResource("11_3qfob")]
+position = Vector2(323, 363)
+
+[connection signal="timeout" from="NightTimer" to="." method="NightOver"]
+[connection signal="charge" from="outletArea" to="Flashlight" method="_on_outlet_area_charge"]

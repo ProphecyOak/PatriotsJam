@@ -1,26 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cva3h8yi7js5p"]
+[gd_scene load_steps=7 format=3 uid="uid://bnw3ct8hye8vx"]
 
-[ext_resource type="Texture2D" uid="uid://c8hdwo6lcy44s" path="res://Assets/Flashlight.png" id="1_gocbo"]
-[ext_resource type="Script" path="res://Scripts/flashlight.gd" id="2_dfbyb"]
+[ext_resource type="Script" path="res://Scripts/Flashlight.gd" id="1_83d78"]
 [ext_resource type="AudioStream" uid="uid://b1kjq4vccf58y" path="res://Assets/Sounds/flashlightOn.wav" id="3_f8g3d"]
 [ext_resource type="AudioStream" uid="uid://cos6t478grc1t" path="res://Assets/Sounds/lightSwitchOff.wav" id="4_nfhfm"]
 [ext_resource type="AudioStream" uid="uid://duvw8ipmqu2do" path="res://Assets/Sounds/chargingSoundTest.wav" id="5_iu53h"]
+[ext_resource type="Texture2D" uid="uid://bi452ppa24dtk" path="res://Assets/Lights/FlashlightLight.png" id="5_wm6wp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cali8"]
-radius = 143.544
+radius = 151.03
 
 [node name="Flashlight" type="Area2D"]
 visible = false
-script = ExtResource("2_dfbyb")
+script = ExtResource("1_83d78")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cali8")
-
-[node name="LightArea" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.176471)
-scale = Vector2(0.431944, 0.431944)
-texture = ExtResource("1_gocbo")
-offset = Vector2(17, 95)
 
 [node name="on" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_f8g3d")
@@ -33,9 +27,16 @@ wait_time = 100.0
 one_shot = true
 
 [node name="chargeTimer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
 
 [node name="chargingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_iu53h")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(62, -6)
+scale = Vector2(1.43345, 1.43345)
+texture = ExtResource("5_wm6wp")
 
 [connection signal="area_entered" from="." to="." method="litAreaEntered"]
 [connection signal="area_exited" from="." to="." method="litAreaExited"]

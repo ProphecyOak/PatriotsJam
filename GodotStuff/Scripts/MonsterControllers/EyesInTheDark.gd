@@ -3,7 +3,12 @@ extends  Monster
 #var for blink animation max time
 @export var blinkMaxTime: int = 5;
 
+#toggles camera zoom
+signal zoomCamera
+
 func _ready():
+	globalRegister()
+	super()
 	$animationTimer.start(randi_range(0,6));
 
 #Spotted behavior. Default just hides monster if not evil
@@ -19,6 +24,11 @@ func onUnspotted():
 #Evil behavior
 #doEvil(): void
 func doEvil():
+	position = Vector2(600, 372)
+	$open.visible = false;
+	$mid.visible = false;
+	$closed.visible = false;
+	$scareSound.play()
 	super()
 
 #Animation behavior/ resetting timer

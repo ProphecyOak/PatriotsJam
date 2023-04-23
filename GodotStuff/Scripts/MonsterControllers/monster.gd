@@ -9,6 +9,7 @@ class_name Monster
 var inLight: bool = false
 var isEvil: bool = false
 
+
 #Generates random Time based within delta% of value either way
 #rndTime(timeBase: int, delta: int): float
 func rndTime(timeBase: int, delta: int = 20):
@@ -16,6 +17,9 @@ func rndTime(timeBase: int, delta: int = 20):
 
 func _ready():
 	$EvilTimer.start(rndTime(Time_Until_Evil))
+
+func globalRegister():
+	Global.monsters.append(self)
 
 #Stops evil timer progress, and triggers spotted behavior
 #spotted(): void
@@ -59,8 +63,16 @@ func evilTimerDone():
 #Evil behavior
 #doEvil(): void
 func doEvil():
-	print("hahahah you lose because im evil now -"+name)
+	await Global.toggleGameOver(name)
+	await jumpScare()
+	await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_file("res://Scenes/endScreen.tscn")
 
-func jumpScare(anim="default"):
-	$Scare.visible = true
-	$Scare.play(anim)
+func jumpScare(anim="jumpScare"):
+	if Global.monsterLostTo == name:
+		Global.flashlight._on_battery_timer_timeout()
+		if Global.isJumpScaresOn:
+			$Scare.visible = true
+			$Scare.play(anim)
+			$scareSound.play()
+			#await get_tree().create_timer(1).timeout
