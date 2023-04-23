@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwcuoxoab1vob"]
+[gd_scene load_steps=16 format=3 uid="uid://dwcuoxoab1vob"]
 
 [ext_resource type="PackedScene" uid="uid://7lub4rpwwag8" path="res://Components/Monsters/monster.tscn" id="1_1pxev"]
 [ext_resource type="Script" path="res://Scripts/MonsterControllers/Lamia.gd" id="2_7ps36"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cyoi6iudj5b78" path="res://Assets/Lamia/TopLeft.png" id="9_cfv6c"]
 [ext_resource type="Texture2D" uid="uid://b0xiqawy5ijlq" path="res://Assets/Lamia/TopRight.png" id="10_llivb"]
 [ext_resource type="Texture2D" uid="uid://d241kp4arxn7n" path="res://Assets/Lamia/Resting.png" id="11_bmgrj"]
+[ext_resource type="AudioStream" uid="uid://b4d175vgt4o56" path="res://Assets/Sounds/snipeRoar.wav" id="13_m2o1k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfx0m"]
 
@@ -35,7 +36,9 @@ shape = SubResource("CircleShape2D_vfx0m")
 disabled = true
 
 [node name="Scare" parent="." index="3"]
-position = Vector2(265, 326.267)
+visible = true
+z_index = 2
+position = Vector2(249, 105.152)
 scale = Vector2(1.26519, 1.37806)
 sprite_frames = SubResource("SpriteFrames_461xy")
 animation = &"jumpScare"
@@ -82,5 +85,8 @@ texture = ExtResource("10_llivb")
 
 [node name="Resting" type="Sprite2D" parent="Room" index="4"]
 texture = ExtResource("11_bmgrj")
+
+[node name="scareSound" parent="." index="7"]
+stream = ExtResource("13_m2o1k")
 
 [connection signal="timeout" from="SpotTimer" to="." method="changeCorner"]
