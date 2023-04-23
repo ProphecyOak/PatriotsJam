@@ -8,12 +8,6 @@ func _ready():
 	await get_tree().create_timer(.6).timeout
 	$AnimationPlayer.play("zoom")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "zoom":
 		await get_tree().create_timer(.6).timeout

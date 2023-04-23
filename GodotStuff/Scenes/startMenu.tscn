@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5bldu680hcc7"]
+[gd_scene load_steps=8 format=3 uid="uid://c5bldu680hcc7"]
 
 [ext_resource type="Script" path="res://Scripts/startMenu.gd" id="1_bqygf"]
 [ext_resource type="Texture2D" uid="uid://dj2nkivpcoipv" path="res://Assets/homeScreen.png" id="2_8q5i0"]
 [ext_resource type="AudioStream" uid="uid://dxltvo7ovltsu" path="res://Assets/Sounds/menuTheme.wav" id="3_7ylal"]
+[ext_resource type="Theme" uid="uid://36f0xuxvnrkc" path="res://Assets/ButtonArt/MenuButtonTheme.tres" id="3_ifmyc"]
+[ext_resource type="PackedScene" uid="uid://jbov7od8oxhj" path="res://Scenes/options.tscn" id="4_u7jq7"]
+[ext_resource type="PackedScene" uid="uid://cq5so5dhkcno7" path="res://Scenes/credits.tscn" id="5_rmako"]
 
 [sub_resource type="Theme" id="Theme_7fkyp"]
-default_font_size = 70
+default_font_size = 100
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -21,7 +24,7 @@ position = Vector2(583, 329)
 scale = Vector2(0.577484, 0.583125)
 texture = ExtResource("2_8q5i0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="StartMenu" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,35 +39,48 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="StartMenu"]
 layout_mode = 2
 theme = SubResource("Theme_7fkyp")
 text = "Sleep-Watch"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Start" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="StartMenu/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme = ExtResource("3_ifmyc")
 text = "Start"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="StartMenu/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 
-[node name="Options" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Options" type="Button" parent="StartMenu/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_ifmyc")
 text = "Options"
 
-[node name="Credits" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Credits" type="Button" parent="StartMenu/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_ifmyc")
 text = "Credits"
 
 [node name="morningSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7ylal")
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[node name="Options" parent="." instance=ExtResource("4_u7jq7")]
+visible = false
+layout_mode = 1
+
+[node name="Credits" parent="." instance=ExtResource("5_rmako")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="StartMenu/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="StartMenu/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="StartMenu/VBoxContainer/HBoxContainer/Credits" to="." method="_on_credits_pressed"]

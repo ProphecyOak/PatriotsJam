@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://ugb08dhe0y3m"]
+[gd_scene load_steps=3 format=3 uid="uid://ugb08dhe0y3m"]
 
+[ext_resource type="Texture2D" uid="uid://dk01xvhvjq4gy" path="res://Assets/ButtonArt/ExitButton.png" id="1_h7xqd"]
 [ext_resource type="Script" path="res://Scripts/backButton.gd" id="1_qpr13"]
 
 [node name="Back" type="Button"]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(50, 50)
 offset_left = 516.0
 offset_top = -276.0
 offset_right = 524.0
 offset_bottom = -268.0
+icon = ExtResource("1_h7xqd")
+flat = true
+expand_icon = true
 script = ExtResource("1_qpr13")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
