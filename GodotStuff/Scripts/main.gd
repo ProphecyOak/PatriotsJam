@@ -32,4 +32,4 @@ func _process(_delta):
 		))		#DEBUG
 		$RoomMonsters.visible = true
 	print($NightTimer.get_time_left())
-	$RoomMonsters/WindowHider/daylightColor.color = Color(.2,.7,1, (transparency) / 50 )
+	$RoomMonsters/WindowHider/daylightColor.color = Color(.2,.7,1, (transparency) / 20 )
