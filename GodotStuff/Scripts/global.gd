@@ -40,6 +40,7 @@ func toggleGameOver(monster):
 func toggleGameNotOver():
 	if gameOver:
 		gameOver = false
+		won = false
 		monsterLostTo = ""
 
 func makeSubtitle(player, type=0, text="", length=3.0): #0 for instant, 1 for not

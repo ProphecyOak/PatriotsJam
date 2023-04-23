@@ -31,5 +31,4 @@ func _process(_delta):
 			randi_range(-1, 1) * shake_amount \
 		))		#DEBUG
 		$RoomMonsters.visible = true
-	print($NightTimer.get_time_left())
 	$RoomMonsters/WindowHider/daylightColor.color = Color(.2,.7,1, (Global.timeTillWin - $NightTimer.get_time_left())/Global.timeTillWin )

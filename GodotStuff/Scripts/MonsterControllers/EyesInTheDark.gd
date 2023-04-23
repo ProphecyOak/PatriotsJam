@@ -7,6 +7,7 @@ extends  Monster
 signal zoomCamera
 
 func _ready():
+	globalRegister()
 	super()
 	$animationTimer.start(randi_range(0,6));
 

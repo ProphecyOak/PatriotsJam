@@ -14,3 +14,6 @@ func _on_animation_player_animation_finished(anim_name):
 		$sleepingBaby.visible = false
 		$goodBaby.visible = true
 		$victorySound.play()
+		await get_tree().create_timer(1).timeout
+		Global.won = true
+		get_tree().change_scene_to_file("res://Scenes/endScreen.tscn")
