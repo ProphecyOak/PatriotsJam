@@ -70,5 +70,7 @@ stream = ExtResource("7_lcmag")
 
 [node name="Lamia" parent="." instance=ExtResource("8_uqau4")]
 position = Vector2(576, 324)
+Time_Until_Evil = 2
+Time_Until_Reappear = 2
 
 [connection signal="timeout" from="Child/CryTimer" to="Child" method="_on_cry_timer_timeout"]

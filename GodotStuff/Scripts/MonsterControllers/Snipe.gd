@@ -14,6 +14,7 @@ var numPos = len(locations)
 var gonnaMoveBack: bool = false
 
 func _ready():
+	globalRegister()
 	$MoveTimer.wait_time = moveSpeed
 
 func moveTimerDone(direction = 1):

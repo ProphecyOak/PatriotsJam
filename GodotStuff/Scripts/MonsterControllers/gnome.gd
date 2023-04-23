@@ -6,6 +6,7 @@ var spottedLately = false
 signal zoomCamera
 
 func _ready():
+	globalRegister()
 	$SpotTimer.start(randi_range(4,10))
 
 #Spotted behavior. Default just hides monster if not evil

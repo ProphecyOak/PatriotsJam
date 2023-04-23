@@ -17,6 +17,8 @@ func rndTime(timeBase: int, delta: int = 20):
 
 func _ready():
 	$EvilTimer.start(rndTime(Time_Until_Evil))
+
+func globalRegister():
 	Global.monsters.append(self)
 
 #Stops evil timer progress, and triggers spotted behavior
@@ -61,8 +63,9 @@ func evilTimerDone():
 #Evil behavior
 #doEvil(): void
 func doEvil():
-	Global.toggleGameOver(name)
+	await Global.toggleGameOver(name)
 	await jumpScare()
+	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://Scenes/endScreen.tscn")
 
 func jumpScare(anim="jumpScare"):
@@ -72,4 +75,4 @@ func jumpScare(anim="jumpScare"):
 			$Scare.visible = true
 			$Scare.play(anim)
 			$scareSound.play()
-			await get_tree().create_timer(1).timeout
+			#await get_tree().create_timer(1).timeout
