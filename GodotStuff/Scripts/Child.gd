@@ -7,7 +7,7 @@ var midScreen = Vector2(570,300)
 
 func _input(event):
 	if isCrying:
-		if event is InputEventKey && event.keycode == 83 && Global.isWatchingCrib && Global.flashlight.isLightOn:
+		if event is InputEventKey && event.keycode == 83 && Global.isWatchingCrib && Global.flashlight.isLightOn && !Global.soothing:
 			soothe()
 	else:
 		if event is InputEventMouseButton && event.button_index == 1 && event.pressed == true && Global.isWatchingCrib  && Global.flashlight.isLightOn:
@@ -40,4 +40,7 @@ func cry():
 func soothe():
 	isCrying = false
 	$CryTimer.start()
+	Global.soothing = true
+	await get_tree().create_timer(3).timeout
+	Global.soothing = false
 	$Cry.stop()

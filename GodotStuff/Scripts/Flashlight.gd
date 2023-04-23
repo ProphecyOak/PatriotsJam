@@ -24,7 +24,7 @@ func _process(_delta):
 func _input(event):
 	if event is InputEventMouseMotion:
 		set_global_position(event.position)
-	elif event is InputEventMouseButton && event.button_index == 2 && event.pressed == true:
+	elif event is InputEventMouseButton && event.button_index == 2 && event.pressed == true && !Global.soothing:
 		switchFlashlight()
 
 func switchFlashlight():
@@ -80,28 +80,6 @@ func chargeHandler():
 	charging = false
 	$BatteryTimer.start(min(currentBattery + chargeAmount,100))
 	pauseBattery = false
-
-
-#Shuts down flashlight when jump scare occurs
-#OPTIMIZE FOR ANY MONSTER!!!!
-
-	
-	
-
-
-func _on_gnome_game_over():
-	visible = false
-	pauseBattery = true
-	isLightOn = false
-	print("flashlight off!")
-
-
-func _on_eyes_in_the_dark_game_over():
-	visible = false
-	pauseBattery = true
-	isLightOn = false
-	print("flashlight off!")
-
 
 func _on_outlet_area_charge():
 	if !pauseBattery:
