@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/forestSounds.gd" id="6_vrlhh"]
 [ext_resource type="PackedScene" uid="uid://c1te53j0o1i0p" path="res://Components/Monsters/gnome.tscn" id="7_8di42"]
 [ext_resource type="Texture2D" uid="uid://bd61sfwyu2w8m" path="res://Assets/Lights/WhiteLight.png" id="9_piran"]
-[ext_resource type="PackedScene" uid="uid://dbcbtlf8k77gj" path="res://Components/outlet_area.tscn" id="11_3qfob"]
+[ext_resource type="PackedScene" uid="uid://kxe6yq6jqfgs" path="res://Components/outlet_area.tscn" id="11_3qfob"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2ym7g")

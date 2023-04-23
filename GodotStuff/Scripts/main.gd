@@ -17,6 +17,8 @@ func _input(event):
 		Global.toggleSounds()
 
 func NightOver():
+	if $"CribView/Lamia".isEvil:
+		$"CribView/Lamia".checkJumpScare()
 	Global.won = true
 	get_tree().change_scene_to_file("res://Scenes/walkingUpScene.tscn")
 

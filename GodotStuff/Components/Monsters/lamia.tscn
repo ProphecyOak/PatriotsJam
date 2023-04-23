@@ -36,7 +36,6 @@ shape = SubResource("CircleShape2D_vfx0m")
 disabled = true
 
 [node name="Scare" parent="." index="3"]
-visible = true
 z_index = 2
 position = Vector2(249, 105.152)
 scale = Vector2(1.26519, 1.37806)
