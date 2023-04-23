@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5bldu680hcc7"]
+[gd_scene load_steps=9 format=3 uid="uid://c5bldu680hcc7"]
 
 [ext_resource type="Script" path="res://Scripts/startMenu.gd" id="1_bqygf"]
 [ext_resource type="Texture2D" uid="uid://dj2nkivpcoipv" path="res://Assets/homeScreen.png" id="2_8q5i0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://36f0xuxvnrkc" path="res://Assets/ButtonArt/MenuButtonTheme.tres" id="3_ifmyc"]
 [ext_resource type="PackedScene" uid="uid://jbov7od8oxhj" path="res://Scenes/options.tscn" id="4_u7jq7"]
 [ext_resource type="PackedScene" uid="uid://cq5so5dhkcno7" path="res://Scenes/credits.tscn" id="5_rmako"]
+[ext_resource type="PackedScene" uid="uid://dcm5g4odkle6t" path="res://Scenes/howToPlay.tscn" id="6_cjpff"]
 
 [sub_resource type="Theme" id="Theme_7fkyp"]
 default_font_size = 100
@@ -70,12 +71,20 @@ size_flags_horizontal = 3
 theme = ExtResource("3_ifmyc")
 text = "Credits"
 
+[node name="HowToPlay" type="Button" parent="StartMenu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ifmyc")
+text = "How To Play"
+
 [node name="morningSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7ylal")
 
 [node name="Options" parent="." instance=ExtResource("4_u7jq7")]
 visible = false
 layout_mode = 1
+
+[node name="HowToPlay" parent="." instance=ExtResource("6_cjpff")]
+visible = false
 
 [node name="Credits" parent="." instance=ExtResource("5_rmako")]
 visible = false
@@ -84,3 +93,4 @@ layout_mode = 1
 [connection signal="pressed" from="StartMenu/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="StartMenu/VBoxContainer/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="StartMenu/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_pressed"]

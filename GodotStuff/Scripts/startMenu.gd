@@ -13,3 +13,8 @@ func _on_options_pressed():
 func _on_credits_pressed():
 	$StartMenu.visible = false
 	$Credits.visible = true
+
+
+func _on_how_to_play_pressed():
+	$StartMenu.visible = false
+	$HowToPlay.visible = true
