@@ -40,14 +40,15 @@ Press 'Space' to switch to crib view
 Press 'm' to mute while in game
 Press 'c' to charge your flashlight - You will lose control during the 10 seconds this takes
 
-While in crib view, you can turn on your flashlight and press 's' to soothe the child
+While in crib view, you can turn on your flashlight and press 's' to soothe the child - This takes 3 seconds
 You can also click on a corner of the crib to move the child away from the Lamia (snake) if the child is not crying
 
 "
 horizontal_alignment = 1
 
 [node name="Back" parent="." instance=ExtResource("1_tfkso")]
-offset_left = 500.0
+layout_mode = 0
+offset_left = -547.0
 offset_top = -300.0
-offset_right = 525.0
-offset_bottom = -275.0
+offset_right = -497.0
+offset_bottom = -250.0

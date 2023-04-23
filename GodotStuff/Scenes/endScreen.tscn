@@ -50,7 +50,7 @@ text = "YOU WON!!!"
 horizontal_alignment = 1
 
 [node name="Back" parent="." instance=ExtResource("2_nukfi")]
-offset_left = 1095.0
+offset_left = 26.0
 offset_top = 28.0
-offset_right = 1120.0
-offset_bottom = 53.0
+offset_right = 76.0
+offset_bottom = 78.0

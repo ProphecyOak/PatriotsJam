@@ -84,10 +84,10 @@ toggle_mode = true
 
 [node name="Back" parent="." instance=ExtResource("2_vbuy0")]
 layout_mode = 0
-offset_left = 500.0
+offset_left = -541.0
 offset_top = -300.0
-offset_right = 525.0
-offset_bottom = -275.0
+offset_right = -491.0
+offset_bottom = -250.0
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Sounds" to="." method="_on_sounds_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/JumpScares" to="." method="_on_jump_scares_pressed"]

@@ -24,7 +24,7 @@ func _process(_delta):
 func _input(event):
 	if event is InputEventMouseMotion:
 		set_global_position(event.position)
-	elif event is InputEventMouseButton && event.button_index == 2 && event.pressed == true:
+	elif event is InputEventMouseButton && event.button_index == 2 && event.pressed == true && !Global.soothing:
 		switchFlashlight()
 
 func switchFlashlight():
