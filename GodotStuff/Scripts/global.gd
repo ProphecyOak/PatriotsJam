@@ -11,6 +11,7 @@ var monsters = []
 
 var cribToggleKey = 32 #Spacebar
 var chargeKey = 67 #c
+var muteToggleKey = 77 #m
 
 var timeTillWin = 500
 var won = false
@@ -21,6 +22,7 @@ var subtitleContainer: VBoxContainer = null
 func toggleSounds():
 	isAudioOn = !isAudioOn
 	print("Sounds on: "+str(isAudioOn))
+	AudioServer.set_bus_mute(0,!isAudioOn)
 
 func toggleJumpScares():
 	isJumpScaresOn = !isJumpScaresOn
