@@ -13,7 +13,7 @@ var cribToggleKey = 32 #Spacebar
 var chargeKey = 67 #c
 var muteToggleKey = 77 #m
 
-var timeTillWin = 10
+var timeTillWin = 20
 var won = false
 
 var subtitleContainer: VBoxContainer = null

@@ -21,10 +21,15 @@ func NightOver():
 
 var shake_amount = 15.0
 
+var transparency = 0
+
 func _process(_delta):
+	transparency += _delta
 	if Global.gameOver:
 		$Camera2D.set_offset(Vector2( \
 			randi_range(-1, 1) * shake_amount, \
 			randi_range(-1, 1) * shake_amount \
 		))		#DEBUG
 		$RoomMonsters.visible = true
+	print($NightTimer.get_time_left())
+	$RoomMonsters/WindowHider/daylightColor.color = Color(.2,.7,1, (transparency) / 50 )
