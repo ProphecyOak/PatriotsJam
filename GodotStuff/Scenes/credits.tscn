@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvvpaifj8ilco"]
+[gd_scene load_steps=3 format=3 uid="uid://cq5so5dhkcno7"]
 
-[ext_resource type="PackedScene" uid="uid://dtl7q107doq3m" path="res://Components/backButton.tscn" id="1_4b1q7"]
+[ext_resource type="PackedScene" uid="uid://ugb08dhe0y3m" path="res://Components/backButton.tscn" id="1_4b1q7"]
 
 [sub_resource type="Theme" id="Theme_3b73g"]
 default_font_size = 50
