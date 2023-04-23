@@ -43,6 +43,7 @@ offset_top = -36.0
 offset_right = 242.0
 offset_bottom = 374.0
 color = Color(0.329412, 0.619608, 0.996078, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Snipe" parent="RoomMonsters/WindowHider" instance=ExtResource("3_bhjst")]
 visible = false
