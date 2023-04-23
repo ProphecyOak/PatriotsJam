@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5bldu680hcc7"]
+[gd_scene load_steps=5 format=3 uid="uid://c5bldu680hcc7"]
 
 [ext_resource type="Script" path="res://Scripts/startMenu.gd" id="1_bqygf"]
+[ext_resource type="Texture2D" uid="uid://dj2nkivpcoipv" path="res://Assets/homeScreen.png" id="2_8q5i0"]
+[ext_resource type="AudioStream" uid="uid://dxltvo7ovltsu" path="res://Assets/Sounds/menuTheme.wav" id="3_7ylal"]
 
 [sub_resource type="Theme" id="Theme_7fkyp"]
 default_font_size = 70
@@ -13,6 +15,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqygf")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(583, 329)
+scale = Vector2(0.577484, 0.583125)
+texture = ExtResource("2_8q5i0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -54,6 +61,9 @@ text = "Options"
 [node name="Credits" type="Button" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Credits"
+
+[node name="morningSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7ylal")
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]

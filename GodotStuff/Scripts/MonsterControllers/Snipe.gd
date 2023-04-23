@@ -20,9 +20,6 @@ func moveTimerDone(direction = 1):
 	currentPosition += direction
 	currentPosition = max(-1,currentPosition)
 	visible = currentPosition >= 0
-	if direction > 0:
-		$Screech.volume_db = soundLevels[currentPosition]
-		$Screech.play()
 	if currentPosition > -1 && currentPosition <= flyingLast:
 		$SnipeFlying.visible = true
 		$SnipeStanding.visible = false
@@ -32,6 +29,9 @@ func moveTimerDone(direction = 1):
 	elif currentPosition > numPos - 1:
 		doEvil()
 		return
+	if direction > 0:
+		$Screech.volume_db = soundLevels[currentPosition]
+		$Screech.play()
 	position = locations[currentPosition]
 	scale = Vector2(scales[currentPosition],scales[currentPosition])
 	$SpotTimer.start(2)
@@ -61,5 +61,8 @@ func onUnspotted():
 #Evil behavior
 #doEvil(): void
 func doEvil():
+	get_parent().clip_children = 0
+	position = Vector2(570, 330)
+	$SnipeFlying.visible = false;
 	super()
 
