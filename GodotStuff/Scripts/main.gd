@@ -12,6 +12,7 @@ func _input(event):
 		Global.isWatchingCrib = !Global.isWatchingCrib
 		$CribView.showCrib(Global.isWatchingCrib)
 		$RoomMonsters.visible = !Global.isWatchingCrib
+		$outletArea.visible = !Global.isWatchingCrib
 	if event is InputEventKey && event.keycode==Global.muteToggleKey && event.is_pressed():
 		Global.toggleSounds()
 
