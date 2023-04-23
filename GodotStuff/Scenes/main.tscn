@@ -31,9 +31,18 @@ scale = Vector2(1.01, 1.01)
 [node name="RoomMonsters" type="Node2D" parent="."]
 
 [node name="WindowHider" type="Polygon2D" parent="RoomMonsters"]
+clip_children = 1
 position = Vector2(0, 1)
-color = Color(1, 1, 1, 0)
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(25, -11, 28, 320, 175, 245, 177, -22)
+
+[node name="daylightColor" type="ColorRect" parent="RoomMonsters/WindowHider"]
+light_mask = 0
+offset_left = -22.0
+offset_top = -36.0
+offset_right = 242.0
+offset_bottom = 374.0
+color = Color(0.329412, 0.619608, 0.996078, 1)
 
 [node name="Snipe" parent="RoomMonsters/WindowHider" instance=ExtResource("3_bhjst")]
 visible = false
