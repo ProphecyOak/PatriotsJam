@@ -26,8 +26,6 @@ func _input(event):
 		set_global_position(event.position)
 	elif event is InputEventMouseButton && event.button_index == 2 && event.pressed == true:
 		switchFlashlight()
-	elif event is InputEventKey && event.is_pressed() && event.keycode==Global.chargeKey && !Global.isWatchingCrib:
-		chargeHandler()
 
 func switchFlashlight():
 	if !pauseBattery:
@@ -103,3 +101,8 @@ func _on_eyes_in_the_dark_game_over():
 	pauseBattery = true
 	isLightOn = false
 	print("flashlight off!")
+
+
+func _on_outlet_area_charge():
+	if !pauseBattery:
+		chargeHandler()

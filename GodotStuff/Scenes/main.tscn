@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://mn16cfky20at"]
+[gd_scene load_steps=12 format=3 uid="uid://mn16cfky20at"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_2ym7g"]
 [ext_resource type="Texture2D" uid="uid://cg4sfvq8ms3ak" path="res://Assets/Room.png" id="1_bmksb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/forestSounds.gd" id="6_vrlhh"]
 [ext_resource type="PackedScene" uid="uid://c1te53j0o1i0p" path="res://Components/Monsters/gnome.tscn" id="7_8di42"]
 [ext_resource type="Texture2D" uid="uid://bd61sfwyu2w8m" path="res://Assets/Lights/WhiteLight.png" id="9_piran"]
+[ext_resource type="PackedScene" uid="uid://dbcbtlf8k77gj" path="res://Components/outlet_area.tscn" id="11_3qfob"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2ym7g")
@@ -113,4 +114,8 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 323)
 
+[node name="outletArea" parent="." instance=ExtResource("11_3qfob")]
+position = Vector2(323, 363)
+
 [connection signal="timeout" from="NightTimer" to="." method="NightOver"]
+[connection signal="charge" from="outletArea" to="Flashlight" method="_on_outlet_area_charge"]
