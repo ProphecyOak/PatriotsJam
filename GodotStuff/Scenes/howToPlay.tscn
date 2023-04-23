@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcm5g4odkle6t"]
+
+[ext_resource type="PackedScene" uid="uid://ugb08dhe0y3m" path="res://Components/backButton.tscn" id="1_tfkso"]
+
+[sub_resource type="Theme" id="Theme_gvm1g"]
+default_font_size = 50
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 616.0
+offset_bottom = 364.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -64.0
+offset_right = 98.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_gvm1g")
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="Us" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Press 'Right Click' to turn the flashlight on - This will use your battery power
+Press 'Space' to switch to crib view
+Press 'm' to mute while in game
+Press 'c' to charge your flashlight - You will lose control during the 10 seconds this takes
+
+While in crib view, you can turn on your flashlight and press 's' to soothe the child
+You can also click on a corner of the crib to move the child away from the Lamia (snake) if the child is not crying
+
+"
+horizontal_alignment = 1
+
+[node name="Back" parent="." instance=ExtResource("1_tfkso")]
+offset_left = 500.0
+offset_top = -300.0
+offset_right = 525.0
+offset_bottom = -275.0

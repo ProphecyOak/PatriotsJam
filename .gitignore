@@ -9,3 +9,22 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+Releases/Web/index.apple-touch-icon.png
+Releases/Web/index.audio.worklet.js
+Releases/Web/index.html
+Releases/Web/index.icon.png
+Releases/Web/index.js
+Releases/Web/index.pck
+Releases/Web/index.png
+Releases/Web/index.wasm
+Releases/Web/index.worker.js
+Releases/Web/NightWatch.apple-touch-icon.png
+Releases/Web/NightWatch.audio.worklet.js
+Releases/Web/NightWatch.icon.png
+Releases/Web/NightWatch.js
+Releases/Web/NightWatch.pck
+Releases/Web/NightWatch.png
+Releases/Web/NightWatch.wasm
+Releases/Web/NightWatch.worker.js
+Releases/Web/NightWatch.zip
+Releases/Windows/NightWatch.exe

@@ -30,6 +30,7 @@ func moveTimerDone(direction = 1):
 		doEvil()
 		return
 	if direction > 0:
+		Global.makeSubtitle($Screech,0,"Snipe Screeches",3)
 		$Screech.volume_db = soundLevels[currentPosition]
 		$Screech.play()
 	position = locations[currentPosition]
