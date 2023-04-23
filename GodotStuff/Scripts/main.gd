@@ -8,7 +8,7 @@ func _ready():
 	Global.subtitleContainer = $UI/Subtitles
 
 func _input(event):
-	if event is InputEventKey && event.keycode==Global.cribToggleKey && event.is_pressed() && !$Flashlight.charging:
+	if event is InputEventKey && event.keycode==Global.cribToggleKey && event.is_pressed() && !$Flashlight.charging && !Global.soothing:
 		Global.isWatchingCrib = !Global.isWatchingCrib
 		$CribView.showCrib(Global.isWatchingCrib)
 		$RoomMonsters.visible = !Global.isWatchingCrib

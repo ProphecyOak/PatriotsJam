@@ -8,6 +8,7 @@ var isWatchingCrib = false
 var mainCam = null
 var flashlight = null
 var monsters = []
+var soothing = false
 
 var cribToggleKey = 32 #Spacebar
 var chargeKey = 67 #c
