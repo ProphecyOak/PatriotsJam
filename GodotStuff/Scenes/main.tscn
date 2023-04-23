@@ -50,6 +50,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 position = Vector2(74, 86)
 scale = Vector2(0.2, 0.2)
+moveSpeed = 15
 flyingLast = 1
 standingLast = 4
 locations = Array[Vector2]([Vector2(111, 46), Vector2(74, 86), Vector2(29, 82), Vector2(50, 103), Vector2(108, 163)])
@@ -58,11 +59,13 @@ scales = Array[float]([0.1, 0.2, 0.1, 0.15, 0.3])
 [node name="EyesInTheDark" parent="RoomMonsters" instance=ExtResource("4_kfgc2")]
 z_index = 1
 position = Vector2(908, 246)
-Time_Until_Evil = 10
+blinkMaxTime = 10
+Time_Until_Reappear = 10
 
 [node name="gnome" parent="RoomMonsters" instance=ExtResource("7_8di42")]
 position = Vector2(581, 536)
-Time_Until_Evil = 10
+Time_Until_Evil = 15
+Time_Until_Reappear = 10
 
 [node name="Flashlight" parent="." instance=ExtResource("2_gacur")]
 position = Vector2(527, 294)
